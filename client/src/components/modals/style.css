@@ -1,0 +1,36 @@
+.btn {
+	margin: 5px;
+	background-color: #9f3c3c;
+	border: 1px solid #9cf;
+	border-radius: calc(1rem / 2);
+	color: #9cf;
+	float: right;
+}
+
+.btn:hover {
+	background-color: #9cf;
+	border: 1px solid rgb(129, 192, 255);
+
+	color: white;
+}
+
+.form-inp-modal {
+	margin-top: 10px;
+}
+
+.drop-menu {
+	display: flex;
+}
+
+.drop-toggle {
+	font-size: 15px !important;
+	margin-left: auto !important;
+	margin-right: 3px !important;
+}
+
+.mar-top {
+	margin-top: 10px;
+}
+
+/* .mdl-body {
+} */

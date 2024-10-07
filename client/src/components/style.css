@@ -1,0 +1,68 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.modul-item-body {
+	display: grid;
+	border: 2px solid red;
+	cursor: pointer;
+}
+
+.modil-item-name {
+	color: black;
+	font-size: 16px;
+}
+
+.wrapper-section-list {
+	margin-top: 30px;
+	margin-left: 120px;
+	width: 900px;
+	border: 2px solid green;
+}
+
+.sidebar {
+	width: 200px;
+	background-color: #f8f9fa;
+	padding: 1rem;
+	position: fixed;
+	height: 100%;
+}
+
+.sidebar-item {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.sidebar-item:hover {
+	background-color: #e2e6ea;
+}
+
+.sidebar-icon {
+	margin-right: 10px; /* Отступ от иконки */
+	width: 20px; /* Ширина иконки */
+	height: 20px; /* Высота иконки */
+}
+
+.content {
+	margin-left: 220px;
+	padding: 2rem;
+}
+
+.item-list {
+	margin: 5px;
+	border: 1px solid rgba(219, 214, 214, 0.697) !important;
+	border-radius: 10px !important;
+}
+
+.modul-item-title {
+	color: grey;
+	border: none;
+	margin-left: 10px;
+}
+
+.b {
+	font-size: 18px;
+	color: rgb(33, 33, 33);
+}

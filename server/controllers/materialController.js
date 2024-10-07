@@ -22,7 +22,7 @@ class materialController {
 	async getAll(req, res) {
 		let { title, sectionId, limit, page } = req.query;
 		page = page || 1;
-		limit = limit || 4;
+		limit = limit || 20;
 		let offset = page * limit - limit;
 		let material;
 		if (!sectionId && !title) {

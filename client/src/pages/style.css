@@ -1,0 +1,189 @@
+* {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 16px;
+	color: #999;
+}
+.btn-form-req {
+	height: 50px;
+	margin: 5px;
+	padding-right: 0;
+	margin-right: 0;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid #9cf;
+	border-radius: 1rem;
+	color: #9cf;
+	margin-left: 10px;
+}
+.btn-form-req:hover {
+	background-color: #9cf;
+	border: 1px solid rgb(129, 192, 255);
+
+	color: white;
+}
+
+.login-input-grid {
+	border-bottom: 1px solid white;
+	box-shadow: 0 1px 0 0 white;
+}
+
+.login-registr-input,
+.login-pass-input {
+	color: black;
+	border-bottom: 1px solid #9cf;
+}
+
+.label-inp {
+	color: #999;
+	font-size: 12px;
+}
+
+.body-row-authent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 54px);
+	margin: 0;
+}
+
+.row-authent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 350px;
+	margin: 0 auto;
+	border: 3px solid #9cf;
+	border-radius: 10px;
+}
+
+.login-registr {
+	display: grid;
+	grid-template-columns: repeat(1, 400px);
+	grid-template-rows: 80px repeat(2, 90px) 150px;
+	width: 400px;
+	height: 400px;
+	padding: 10px;
+}
+
+.login-title {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 15px;
+	font-size: 24px;
+}
+
+.login-btn {
+	display: grid;
+	grid-template-columns: repeat(2, 155px);
+	grid-template-rows: 1fr;
+	justify-content: center;
+	padding-top: 15px;
+	margin: 0;
+}
+
+.header-wrapper {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	background-color: #9cf;
+}
+
+.header-logo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 20px;
+	font-size: 24px;
+	color: white;
+}
+
+.header-links {
+	display: flex;
+}
+
+.home-cont {
+	display: flex;
+	margin-left: 200px;
+}
+
+.row-home {
+	margin-top: 20px;
+}
+.row-oth-page {
+	display: grid;
+}
+
+.page-title {
+	font-weight: bold;
+	font-size: 28px;
+}
+
+.card-auth {
+	width: 600px;
+	padding: 5px;
+}
+
+.form-card {
+	display: flex;
+	flex-direction: column;
+	margin: 2px;
+}
+
+.input-form {
+	height: 50px;
+	margin-top: 10px;
+}
+
+.row-form {
+	display: flex;
+	align-items: center;
+	margin: 10px;
+}
+
+.cont-admin {
+	display: grid;
+	margin-top: 25px;
+}
+
+.btn {
+	margin: 5px;
+	width: 100vh;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid #9cf;
+	border-radius: calc(1rem / 2);
+	color: #9cf;
+}
+
+.btn:hover {
+	background-color: #9cf;
+	border: 1px solid rgb(129, 192, 255);
+
+	color: white;
+}
+
+.section-item-body {
+	margin: 15px 10px 0 200px;
+	border: 1px solid red;
+	color: black;
+}
+
+.section-item-chpt {
+	padding-left: 5px;
+	font-weight: bold;
+	font-size: 24px;
+	color: black;
+}
+
+.section-item-title {
+	font-weight: bold;
+	font-size: 22px;
+	padding-top: 15px;
+	color: black;
+}
+
+.section-item-cont {
+	font-weight: 500;
+	padding-top: 5px;
+	color: black;
+}

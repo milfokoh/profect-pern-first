@@ -19,7 +19,7 @@ const Material = sequelize.define('material', {
 	content: { type: DataTypes.STRING },
 });
 
-Section.hasMany(Material); // Section.hasMany(Material, { as: 'info' });
+Section.hasMany(Material, { as: 'info' });
 Material.belongsTo(Section);
 
 module.exports = {
