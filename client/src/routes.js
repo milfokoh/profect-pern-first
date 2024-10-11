@@ -1,7 +1,7 @@
-import AdminPanel from './pages/AdminPanel';
-import HomePage from './pages/HomePage';
-import SectionPage from './pages/SectionPage';
-import AuthPage from './pages/AuthPage';
+import HomeContent from './components/page-home/HomeContent';
+import SectionContent from './pages/page-section/SectionContent';
+import AuthPage from './pages/page-auth/AuthPage';
+import AdminHomePage from './pages/page-admin/AdminHomePage';
 import {
 	ADMIN_ROUTE,
 	HOME_ROUTE,
@@ -13,17 +13,17 @@ import {
 export const authRoutes = [
 	{
 		path: ADMIN_ROUTE,
-		Component: AdminPanel,
+		Component: AdminHomePage,
 	},
 ];
 export const publicRoutes = [
 	{
 		path: HOME_ROUTE,
-		Component: HomePage,
+		Component: HomeContent,
 	},
 	{
 		path: SECTION_ROUTE + '/:id',
-		Component: SectionPage,
+		Component: SectionContent,
 	},
 	{
 		path: LOGIN_ROUTE,

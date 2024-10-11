@@ -1,0 +1,58 @@
+.wrapper-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 91vh;
+	margin: 0;
+}
+
+.body-form {
+	width: 500px;
+	max-width: 650px;
+	max-height: 650px;
+	margin: 0 auto;
+	padding: 30px;
+	border: 3px solid rgba(0, 21, 41, 0.43);
+	border-radius: 1rem;
+}
+
+.wrapper-btn {
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid red;
+}
+.center {
+	text-align: center;
+}
+
+.left {
+	flex: 1;
+	text-align: left;
+}
+
+.right {
+	flex: 1;
+	text-align: right;
+}
+
+.p-auth {
+	text-align: center;
+}
+
+.btn-sub {
+	width: 100%;
+	margin-bottom: 0;
+	background-color: rgb(0, 21, 41);
+}
+
+.btn-sub:hover {
+	background-color: rgb(0, 21, 41); /* !important */
+}
+
+.color-border:hover {
+	border-color: rgb(0, 21, 41) !important;
+}
+
+.btn-link {
+	text-decoration: none;
+}

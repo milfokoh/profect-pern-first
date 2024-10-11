@@ -1,0 +1,11 @@
+.content {
+	min-height: 615px;
+	margin: 24px 16px;
+	padding: 24px;
+	background: var(--antd-token-color-bg-container);
+	border-radius: var(--antd-token-border-radius-lg);
+}
+
+.space {
+	display: flex;
+}

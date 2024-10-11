@@ -1,0 +1,13 @@
+.header {
+	padding: 0;
+}
+
+.btn-shift {
+	width: 64;
+	height: 64;
+	font-size: 16px;
+}
+
+.menu {
+	padding-top: 64px;
+}

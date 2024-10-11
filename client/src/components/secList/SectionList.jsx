@@ -1,16 +1,16 @@
 import React from 'react';
+import './SectionList.css';
+import SectionItem from '../secItem/SectionItem';
+import { Space } from 'antd';
 import { observer } from 'mobx-react-lite';
-import SectionItem from './SectionItem';
-import './style.css';
 
 const SectionList = observer(({ section, materials }) => {
 	return (
-		<div className='wrapper-section-list'>
+		<Space direction='vertical' size='middle' className='space'>
 			{section.section.map(sec => (
 				<SectionItem key={sec.id} section={sec} materials={materials} />
 			))}
-		</div>
+		</Space>
 	);
 });
-
 export default SectionList;

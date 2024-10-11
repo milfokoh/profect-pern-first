@@ -20,26 +20,19 @@ class materialController {
 	}
 
 	async getAll(req, res) {
-		let { title, sectionId, limit, page } = req.query;
-		page = page || 1;
-		limit = limit || 20;
-		let offset = page * limit - limit;
+		let { title, sectionId } = req.query;
 		let material;
 		if (!sectionId && !title) {
-			material = await Material.findAndCountAll({ limit, offset });
+			material = await Material.findAndCountAll({});
 		}
 		if (sectionId && !title) {
 			material = await Material.findAndCountAll({
 				where: { sectionId },
-				limit,
-				offset,
 			});
 		}
 		if (!sectionId && title) {
 			material = await Material.findAndCountAll({
 				where: { title },
-				limit,
-				offset,
 			});
 		}
 		return res.json(material);
