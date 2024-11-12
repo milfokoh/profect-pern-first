@@ -3,6 +3,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Button, Form, Input, Layout } from 'antd';
 import { Context } from '../..';
 import {
+	ADMIN_ROUTE,
 	HOME_ROUTE,
 	LOGIN_ROUTE,
 	REGISTRATION_ROUTE,
@@ -28,9 +29,9 @@ const AuthPage = observer(() => {
 			} else {
 				data = await registration(email, password);
 			}
-			user.setUser(data);
+			user.setUser(user);
 			user.setIsAuth(true);
-			history.push(HOME_ROUTE);
+			history.push(ADMIN_ROUTE);
 		} catch (error) {
 			alert(error.response.data.message);
 		}

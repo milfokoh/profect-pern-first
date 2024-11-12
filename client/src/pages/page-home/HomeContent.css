@@ -1,5 +1,5 @@
 .content {
-	min-height: 615px;
+	min-height: calc(100vh - 24px - 64px);
 	margin: 24px 16px;
 	padding: 24px;
 	background: var(--antd-token-color-bg-container);

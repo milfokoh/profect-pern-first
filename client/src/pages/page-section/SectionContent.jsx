@@ -10,6 +10,7 @@ const SectionContent = () => {
 
 	useEffect(() => {
 		fetchOneSection(id).then(data => setSection(data));
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (
@@ -17,7 +18,7 @@ const SectionContent = () => {
 			<h3 orientation='left' key={section.id}>
 				{section.name}
 			</h3>
-			{section.info.map((info, index) => (
+			{section.info.map(info => (
 				<Layout key={info.id}>
 					<Divider key={info.id}>{info.title}</Divider>
 					<p>{info.content}</p>
