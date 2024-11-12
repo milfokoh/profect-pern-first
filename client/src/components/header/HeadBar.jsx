@@ -15,7 +15,8 @@ const HeadBar = observer(() => {
 
 	const handlePageClick = () => {
 		if (user.isAuth) {
-			history.push(HOME_ROUTE);
+			user.setUser({});
+			user.setIsAuth(false);
 		} else history.push(LOGIN_ROUTE);
 	};
 
@@ -25,9 +26,11 @@ const HeadBar = observer(() => {
 	};
 
 	const styleUser = {
-		color: 'rgb(0, 21, 41)',
-		backgroundColor: 'white',
+		backgroundColor: 'rgb(0, 21, 41)',
+		color: 'white',
 	};
+
+	console.log('выполнен вход пользователя в систему?', user.isAuth);
 
 	return (
 		<Header className='header' style={user.isAuth ? styleAuth : styleUser}>
