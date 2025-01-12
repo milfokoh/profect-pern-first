@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/router/AppRouter';
 import { Layout } from 'antd';
-import AsideBar from './components/aside/AsideBar';
-import HeadBar from './components/header/HeadBar';
+import {
+	AppRouter,
+	AsideBar,
+	HeadBar,
+	AsideAdminBar,
+	FooterMulti,
+	Spinner,
+} from './components';
 import { Context } from '.';
-import AsideAdminBar from './components/aside-admin/AsideAdminBar';
 import { check } from './http/userAPI';
-import Spinner from './components/spinner/Spinner';
 import { observer } from 'mobx-react-lite';
-import FooterMulti from './components/footer/FooterMulti';
 
 const App = observer(() => {
 	const { user } = useContext(Context);
@@ -40,9 +42,10 @@ const App = observer(() => {
 			<Layout>
 				{user.isAuth ? (
 					<AsideAdminBar collapsed={collapsed} setCollapsed={setCollapsed} />
-				) : null
-				// (<AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />)
-				}
+				) : (
+					// null
+					<AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />
+				)}
 
 				<Layout>
 					<HeadBar />

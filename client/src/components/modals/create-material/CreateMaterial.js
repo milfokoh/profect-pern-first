@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Context } from '../..';
+import { Context } from '../../..';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
+
+import { observer } from 'mobx-react-lite';
+import { Button, Dropdown, Form, Input, Modal, Space } from 'antd';
+import './CreateMaterial.css';
 import {
 	createMaterial,
 	fetchMaterial,
 	fetchSection,
-} from '../../http/sectionAPI';
-import { observer } from 'mobx-react-lite';
-import { Button, Dropdown, Form, Input, Modal, Space } from 'antd';
-import './style.css';
+} from '../../../http/sectionAPI';
 
 const CreateMaterial = observer(({ open, onOk, onCancel }) => {
 	const { section } = useContext(Context);

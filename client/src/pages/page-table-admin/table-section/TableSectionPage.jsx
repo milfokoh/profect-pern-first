@@ -7,9 +7,8 @@ import {
 } from '@ant-design/icons';
 import { fetchSection } from '../../../http/sectionAPI';
 import { Context } from '../../..';
-import CreateSection from '../../../components/modals/CreateSection';
 import './TableSectionPage.css';
-import CreateMaterial from '../../../components/modals/CreateMaterial';
+import { CreateMaterial, CreateSection } from '../../../components';
 
 const columns = [
 	{

@@ -1,1 +1,1 @@
-export { default } from './As';
+export { default } from './AsideBar';
