@@ -1,0 +1,22 @@
+.foot {
+	/* color: white; */
+	/* text-align: center; */
+	/* background-color: rgb(0, 21, 41); */
+}
+
+.row-auth {
+	display: grid;
+	grid-template-rows: repeat(1, auto);
+	grid-template-columns: repeat(2, auto);
+	gap: 10px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.borColor {
+}
+
+[href] {
+	text-decoration: none;
+}

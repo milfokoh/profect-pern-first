@@ -1,43 +1,27 @@
 import React, { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Form, Input, InputNumber, Modal } from 'antd';
 import './style.css';
 import { createSection } from '../../http/sectionAPI';
+import { observer } from 'mobx-react-lite';
 
-const CreateSection = ({ show, onHide }) => {
+const CreateSection = observer(({ open, onOk, onCancel }) => {
 	const [section, setSection] = useState('');
 
 	const addSection = () => {
 		createSection({ name: section }).then(data => setSection(''));
-		onHide();
+		onCancel();
 	};
 
 	return (
-		<Modal show={show} onHide={onHide} size='lg' centered>
-			<Modal.Header closeButton>
-				<Modal.Title id='contained-modal-title-vcenter'>
-					Добавить новый раздел
-				</Modal.Title>
-			</Modal.Header>
-			<Modal.Body>
-				<Form>
-					<Form.Control
-						value={section}
-						onChange={e => setSection(e.target.value)}
-						className='mar-top'
-						placeholder='Введите название раздела'
-					/>
-				</Form>
-			</Modal.Body>
-			<Modal.Footer>
-				<Button className='btn' onClick={onHide}>
-					Закрыть
-				</Button>
-				<Button className='btn' onClick={addSection}>
-					Добавить
-				</Button>
-			</Modal.Footer>
+		<Modal title='Добавить новый раздел' open={open} onOk={onOk} onCancel={onCancel}>
+			{/* info: Существует ситуация, когда использование <Modal /> с Form не очистит значение поля при закрытии Modal, даже если вы установили destroyOnClose. В этом случае вам нужно <Form preserve={false} />.  */}
+			<Form className='form-section'>
+				<Form.Item label='Раздел' name='section'>
+					<Input placeholder='Введите новое название раздела' />
+				</Form.Item>
+			</Form>
 		</Modal>
 	);
-};
+});
 
 export default CreateSection;

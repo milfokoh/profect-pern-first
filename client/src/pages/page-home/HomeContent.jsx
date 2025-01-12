@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { Layout } from 'antd';
 import './HomeContent.css';
-import SectionList from '../secList/SectionList';
 import { Context } from '../..';
 import { fetchMaterial, fetchSection } from '../../http/sectionAPI';
 import { observer } from 'mobx-react-lite';
+import SectionList from '../../components/secList/SectionList';
 
 const { Content } = Layout;
 

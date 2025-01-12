@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Dropdown, Form, Modal } from 'react-bootstrap';
 import { Context } from '../..';
-import './style.css';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import {
 	createMaterial,
 	fetchMaterial,
 	fetchSection,
 } from '../../http/sectionAPI';
 import { observer } from 'mobx-react-lite';
+import { Button, Dropdown, Form, Input, Modal, Space } from 'antd';
+import './style.css';
 
-const CreateMaterial = observer(({ show, onHide }) => {
+const CreateMaterial = observer(({ open, onOk, onCancel }) => {
 	const { section } = useContext(Context);
 
 	useEffect(() => {
@@ -25,58 +26,73 @@ const CreateMaterial = observer(({ show, onHide }) => {
 			title: name,
 			content: link,
 			sectionId: section.selectedSec.id,
-		}).then(data => onHide());
+		});
+		// .then(data => onHide());
+	};
+
+	const handleMenuClick = e => {
+		// message.info('Click on menu item.');
+		console.log('click', e);
+	};
+	const items = [
+		{
+			label: '1st menu item',
+			key: '1',
+			icon: <UserOutlined />,
+		},
+		{
+			label: '2nd menu item',
+			key: '2',
+			icon: <UserOutlined />,
+		},
+		{
+			label: '3rd menu item',
+			key: '3',
+			icon: <UserOutlined />,
+			danger: true,
+		},
+		{
+			label: '4rd menu item',
+			key: '4',
+			icon: <UserOutlined />,
+			danger: true,
+			disabled: true,
+		},
+	];
+	const menuProps = {
+		items,
+		onClick: handleMenuClick,
 	};
 
 	return (
-		<Modal show={show} onHide={onHide} size='lg' centered>
-			<Modal.Header closeButton>
-				<Modal.Title id='contained-modal-title-vcenter'>
-					Добавить новый материал
-				</Modal.Title>
-			</Modal.Header>
-			<Modal.Body className='mdl-body'>
-				<Form>
-					<Dropdown className='drop-menu'>
-						<Dropdown.Toggle className='drop-toggle'>
-							{section.selectedSec.name || 'Выберите раздел'}
-						</Dropdown.Toggle>
-						<Dropdown.Menu>
-							{section.section.map(sec => (
-								<Dropdown.Item
-									key={sec.id}
-									onClick={() => {
-										section.setSelectedSec(sec);
-									}}
-								>
-									{sec.name}
-								</Dropdown.Item>
-							))}
-						</Dropdown.Menu>
-					</Dropdown>
-					<Form.Control
-						value={name}
-						onChange={e => setName(e.target.value)}
-						className='mar-top'
-						placeholder='Введите название параграфа'
-					/>
-
-					<Form.Control
-						value={link}
-						onChange={e => setLink(e.target.value)}
-						className='mar-top'
-						placeholder='Введите ссылку на конент'
-					/>
-				</Form>
-			</Modal.Body>
-			<Modal.Footer>
-				<Button className='btn' onClick={onHide}>
-					Закрыть
-				</Button>
-				<Button className='btn' onClick={addMaterial}>
-					Добавить
-				</Button>
-			</Modal.Footer>
+		<Modal
+			title='Добавить новый материал'
+			open={open}
+			onOk={onOk}
+			onCancel={onCancel}
+		>
+			<Form
+				className='form-section'
+				autoComplete='off'
+				labelCol={{ span: 4 }}
+				wrapperCol={{ span: 20 }}
+				initialValues={{ remember: true }}
+			>
+				<Dropdown menu={menuProps}>
+					<Button>
+						<Space>
+							Button
+							<DownOutlined />
+						</Space>
+					</Button>
+				</Dropdown>
+				<Form.Item label='Материал' name='section'>
+					<Input placeholder='Введите новое название материала' />
+				</Form.Item>
+				<Form.Item label='Ссылка' name='link'>
+					<Input placeholder='Введите ссылку на материал' />
+				</Form.Item>
+			</Form>
 		</Modal>
 	);
 });

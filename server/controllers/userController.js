@@ -23,7 +23,7 @@ class UserController {
 		}
 		const hashPassword = await bcrypt.hash(password, 5);
 		const user = await User.create({ email, password: hashPassword, role });
-		//const adminPage = await AdminPage.create({userId: user.id});
+		// const adminPage = await AdminPage.create({userId: user.id});
 		const token = generateJwt(user.id, user.email, user.role);
 		return res.json({ token });
 	}

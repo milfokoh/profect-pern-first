@@ -9,6 +9,7 @@ import AsideAdminBar from './components/aside-admin/AsideAdminBar';
 import { check } from './http/userAPI';
 import Spinner from './components/spinner/Spinner';
 import { observer } from 'mobx-react-lite';
+import FooterMulti from './components/footer/FooterMulti';
 
 const App = observer(() => {
 	const { user } = useContext(Context);
@@ -18,7 +19,7 @@ const App = observer(() => {
 	useEffect(() => {
 		check()
 			.then(data => {
-				user.setUser(true);
+				user.setUser(data);
 				user.setIsAuth(true);
 			})
 			.finally(() => setLoading(false));
@@ -28,17 +29,25 @@ const App = observer(() => {
 		return <Spinner />;
 	}
 
+	const footerStyle = {
+		textAlign: 'center',
+		color: '#fff',
+		backgroundColor: '#4096ff',
+	};
+
 	return (
 		<BrowserRouter>
 			<Layout>
 				{user.isAuth ? (
 					<AsideAdminBar collapsed={collapsed} setCollapsed={setCollapsed} />
-				) : (
-					<AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />
-				)}
+				) : null
+				// (<AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />)
+				}
+
 				<Layout>
 					<HeadBar />
 					<AppRouter />
+					<FooterMulti />
 				</Layout>
 			</Layout>
 		</BrowserRouter>

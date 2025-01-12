@@ -15,13 +15,9 @@ const HeadBar = observer(() => {
 
 	const handlePageClick = () => {
 		if (user.isAuth) {
-			history.push(HOME_ROUTE);
+			user.setUser({});
+			user.setIsAuth(false);
 		} else history.push(LOGIN_ROUTE);
-	};
-
-	const styleAuth = {
-		color: 'rgb(0, 21, 41)',
-		backgroundColor: 'white',
 	};
 
 	const styleUser = {
@@ -29,13 +25,25 @@ const HeadBar = observer(() => {
 		backgroundColor: 'white',
 	};
 
+	const styleAuth = {
+		backgroundColor: 'rgb(0, 21, 41)',
+		color: 'white',
+	};
+
+	console.log('выполнен вход пользователя в систему?', user.isAuth);
+
 	return (
 		<Header className='header' style={user.isAuth ? styleAuth : styleUser}>
-			<h2 className='h-left' onClick={() => history.push(HOME_ROUTE)}>
-				{user.isAuth ? 'Админ-панель' : 'География'}
-			</h2>
+			<div className='h-left'>
+				<h2 onClick={() => history.push(HOME_ROUTE)}>
+					{user.isAuth ? 'Админ-панель' : 'География'}
+				</h2>
+			</div>
 			<div className='demo-logo h-right'>
-				<GlobalOutlined onClick={handlePageClick} />
+				<p className='login-text' onClick={handlePageClick} title='Войти'>
+					Личный кабинет
+				</p>
+				{/* <GlobalOutlined onClick={handlePageClick} title='Войти'/> */}
 			</div>
 		</Header>
 	);
