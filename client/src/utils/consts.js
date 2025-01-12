@@ -4,6 +4,7 @@ export const REGISTRATION_ROUTE = '/registration';
 export const HOME_ROUTE = '/homepage';
 export const SECTION_ROUTE = '/section';
 export const COURSE_ROUTE = '/course';
+export const PROFILE_ROUTE = '/profile';
 export const SECTION_TABLE_ROUTE = '/sectiontable';
 export const MATERIAL_TABLE_ROUTE = '/materialtable';
 export const USER_TABLE_ROUTE = '/usertable';

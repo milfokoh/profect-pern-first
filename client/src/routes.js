@@ -1,25 +1,45 @@
-import HomeContent from './components/page-home/HomeContent';
-import SectionContent from './pages/page-section/SectionContent';
-import AuthPage from './pages/page-auth/AuthPage';
-import AdminHomePage from './pages/page-admin/AdminHomePage';
 import {
 	ADMIN_ROUTE,
+	COURSE_ROUTE,
 	HOME_ROUTE,
 	LOGIN_ROUTE,
+	PROFILE_ROUTE,
 	REGISTRATION_ROUTE,
 	SECTION_ROUTE,
+	SECTION_TABLE_ROUTE,
 } from './utils/consts';
+import HomeContent from './pages/page-home/HomeContent';
+import AdminHomePage from './pages/page-admin/AdminHomePage';
+import AuthPage from './pages/page-auth/AuthPage';
+import SectionContent from './pages/page-section/SectionContent';
+import TableSectionPage from './pages/page-table-admin/table-section/TableSectionPage';
+import CoursePage from './pages/page-course/CoursePage';
+import ProfilPage from './pages/page-profil/ProfilePage';
+import MainPage from './pages/page-main/MainPage';
 
-export const authRoutes = [
+const authRoutes = [
 	{
 		path: ADMIN_ROUTE,
 		Component: AdminHomePage,
+	},
+	{
+		path: SECTION_TABLE_ROUTE,
+		Component: TableSectionPage,
 	},
 ];
 export const publicRoutes = [
 	{
 		path: HOME_ROUTE,
+		// Component: HomeContent,
+		Component: MainPage,
+	},
+	{
+		path: COURSE_ROUTE,
 		Component: HomeContent,
+	},
+	{
+		path: PROFILE_ROUTE, // + :id
+		Component: ProfilPage,
 	},
 	{
 		path: SECTION_ROUTE + '/:id',
@@ -34,3 +54,5 @@ export const publicRoutes = [
 		Component: AuthPage,
 	},
 ];
+
+export default authRoutes;

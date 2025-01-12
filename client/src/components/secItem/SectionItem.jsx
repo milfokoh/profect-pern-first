@@ -1,12 +1,16 @@
-import React from 'react';
-import './SectionItem.css';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { SECTION_ROUTE } from '../../utils/consts';
 import { Card } from 'antd';
-import { observer } from 'mobx-react-lite';
+import './SectionItem.css';
 
-const SectionItem = observer(({ section, materials }) => {
+const SectionItem = ({ section, materials }) => {
 	const history = useHistory();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);		
+	}, []);
+
 	return (
 		<Card
 			title={` Модуль ${section.id}. ${section.name}`}
@@ -19,6 +23,6 @@ const SectionItem = observer(({ section, materials }) => {
 					.map(mat => <p key={mat.id}>{mat.title}</p>)}
 		</Card>
 	);
-});
+};
 
 export default SectionItem;

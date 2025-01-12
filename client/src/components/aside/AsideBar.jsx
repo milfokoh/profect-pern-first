@@ -57,13 +57,14 @@ const AsideBar = observer(({ collapsed, setCollapsed }) => {
 	) {
 		return (
 			<Sider
-				collapsible
-				collapsed={collapsed}
+				theme='light'
+				// collapsible
+				collapsed={collapsed || true}
 				onCollapse={value => setCollapsed(value)}
 			>
 				<div className='demo-logo-vertical' />
 				<Menu
-					theme='dark'
+					theme='light'
 					defaultSelectedKeys={['0']}
 					mode='inline'
 					items={items}
