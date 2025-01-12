@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { authRoutes, publicRoutes } from '../../routes';
-import { HOME_ROUTE } from '../../utils/consts';
 import { Context } from '../..';
+import authRoutes, { publicRoutes } from '../../routes';
+import { HOME_ROUTE } from '../../utils/consts';
 import { observer } from 'mobx-react-lite';
 
 const AppRouter = observer(() => {
 	const { user } = useContext(Context);
-
-	console.log(user);
 	return (
 		<Switch>
 			{user.isAuth &&
@@ -22,5 +20,4 @@ const AppRouter = observer(() => {
 		</Switch>
 	);
 });
-
 export default AppRouter;
