@@ -3,7 +3,7 @@ import {
 	COURSE_ROUTE,
 	HOME_ROUTE,
 	LOGIN_ROUTE,
-	PROFILEE_ROUTE,
+	PROFILE_ROUTE,
 	REGISTRATION_ROUTE,
 	SECTION_ROUTE,
 	SECTION_TABLE_ROUTE,
@@ -37,7 +37,7 @@ export const publicRoutes = [
 		Component: HomeContent,
 	},
 	{
-		path: PROFILEE_ROUTE, // + :id
+		path: PROFILE_ROUTE, // + :id
 		Component: ProfilPage,
 	},
 	{
