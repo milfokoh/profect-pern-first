@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Button, Form, Input, Layout } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { Context } from '../..';
 import {
 	ADMIN_ROUTE,
@@ -11,6 +11,7 @@ import {
 import { login, registration } from '../../http/userAPI';
 import './AuthPage.css';
 import { observer } from 'mobx-react-lite';
+import { Layout } from '@app/../UI';
 
 const AuthPage = observer(() => {
 	const { user } = useContext(Context);
