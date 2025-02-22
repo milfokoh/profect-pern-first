@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button, Col, Layout, Modal, Row, Table } from 'antd';
+import { useContext, useEffect, useState } from 'react';
+import { Button, Col, Row, Table } from 'antd';
 import {
 	ArrowDownOutlined,
 	EditTwoTone,
@@ -9,6 +9,7 @@ import { fetchSection } from '../../../http/sectionAPI';
 import { Context } from '../../..';
 import './TableSectionPage.css';
 import { CreateMaterial, CreateSection } from '../../../components';
+import { Layout } from '@app/../UI';
 
 const columns = [
 	{

@@ -1,10 +1,11 @@
 import { MehTwoTone } from '@ant-design/icons';
-import { Avatar, Card, Col, Flex, Layout, Menu, Progress, Row } from 'antd';
+import { Avatar, Col, Progress, Row } from 'antd';
 import { HOME_ROUTE } from '../../utils/consts';
 
 import './ProfilePage.css';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
+import { Card, Layout } from '@app/../UI';
 
 const ProfilePage = observer(() => {
 	const history = useHistory();

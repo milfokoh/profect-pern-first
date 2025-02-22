@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { SECTION_ROUTE } from '../../utils/consts';
-import { Card } from 'antd';
 import './SectionItem.css';
+import { Card } from '@app/../UI';
 
 const SectionItem = ({ section, materials }) => {
 	const history = useHistory();
 
 	useEffect(() => {
-		window.scrollTo(0, 0);		
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (

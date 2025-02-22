@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Divider, Layout } from 'antd';
 import { fetchOneSection } from '../../http/sectionAPI';
 import './SectionContent.css';
+import { Divider, Layout } from '@app/../UI';
 
 const SectionContent = () => {
 	const [section, setSection] = useState({ info: [] });

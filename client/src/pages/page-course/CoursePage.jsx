@@ -4,10 +4,11 @@ import {
 	TeamOutlined,
 	UngroupOutlined,
 } from '@ant-design/icons';
-import { Card, Layout, Menu } from 'antd';
 import { HOME_ROUTE } from '../../utils/consts';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './CoursePage.css';
+import { Layout } from '@app/../UI';
+import { Card } from '@app/../UI';
 
 const CoursePage = () => {
 	const history = useHistory();

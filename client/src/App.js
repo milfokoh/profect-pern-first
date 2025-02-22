@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Layout } from 'antd';
 import {
 	AppRouter,
 	AsideBar,
@@ -12,6 +11,7 @@ import {
 import { Context } from '.';
 import { check } from './http/userAPI';
 import { observer } from 'mobx-react-lite';
+import { Layout } from './UI';
 
 const App = observer(() => {
 	const { user } = useContext(Context);

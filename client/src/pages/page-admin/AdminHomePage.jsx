@@ -1,6 +1,7 @@
 import React from 'react';
-import { Calendar, Col, Empty, Layout, Row } from 'antd';
+import { Calendar, Col, Empty, Row } from 'antd';
 import './AdminHomePage.css';
+import { Layout } from '@app/../UI';
 
 const AdminHomePage = () => {
 	return (
