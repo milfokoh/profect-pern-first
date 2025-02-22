@@ -47,7 +47,6 @@
 		"web-vitals": "^2.1.4"
 	},
 	"devDependencies": {
-		"@types/react": "^19.0.10",
-		"typescript": "^5.7.3"
+		"@types/react": "^19.0.10"
 	}
 }
