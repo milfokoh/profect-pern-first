@@ -3,7 +3,7 @@ import {
 	COURSE_ROUTE,
 	HOME_ROUTE,
 	LOGIN_ROUTE,
-	PROFILE_ROUTE,
+	PROFILEE_ROUTE,
 	REGISTRATION_ROUTE,
 	SECTION_ROUTE,
 	SECTION_TABLE_ROUTE,
@@ -13,7 +13,6 @@ import AdminHomePage from './pages/page-admin/AdminHomePage';
 import AuthPage from './pages/page-auth/AuthPage';
 import SectionContent from './pages/page-section/SectionContent';
 import TableSectionPage from './pages/page-table-admin/table-section/TableSectionPage';
-import CoursePage from './pages/page-course/CoursePage';
 import ProfilPage from './pages/page-profil/ProfilePage';
 import MainPage from './pages/page-main/MainPage';
 
@@ -38,7 +37,7 @@ export const publicRoutes = [
 		Component: HomeContent,
 	},
 	{
-		path: PROFILE_ROUTE, // + :id
+		path: PROFILEE_ROUTE, // + :id
 		Component: ProfilPage,
 	},
 	{
