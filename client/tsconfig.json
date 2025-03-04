@@ -15,6 +15,7 @@
 		"jsx": "react-jsx",
 		"pretty": true,
 		"sourceMap": true,
+		"allowImportingTsExtensions": true,
 		"paths": {
 			"@app/*": ["./*"]
 		},
