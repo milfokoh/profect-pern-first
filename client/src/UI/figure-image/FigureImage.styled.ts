@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 50px;
+	display: block;
+	padding: 0;
 `;
 
 export const Header = styled.div`
