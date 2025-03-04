@@ -24,7 +24,7 @@ const MainPage: FC<TMainPage> = observer(() => {
 	return (
 		<div className='content'>
 			<FigureImage
-				title='Образовательный онлайн курс по географии'
+				title='Образовательный курс по географии'
 				image='/image/page-main/background/main-back-min.png'
 			/>
 			<SectionConteiner>

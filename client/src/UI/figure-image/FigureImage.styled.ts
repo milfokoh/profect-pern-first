@@ -5,26 +5,25 @@ export const Wrapper = styled.div`
 	overflow: hidden;
 	margin-bottom: 50px;
 	display: block;
-	padding: 0;
 `;
 
 export const Header = styled.div`
 	position: absolute;
 	display: flex;
 	text-align: right;
-	max-width: 700px;
+	max-width: 1200px;
 	padding: 20px;
 	background-color: rgba(255, 255, 255, 0.22);
 	border-radius: 5px;
 	z-index: 0;
 	top: 20%;
-	right: 10%;
+	right: 5%;
 `;
 
 export const Headline = styled.h1`
-	color: #2c6c8b;
+	color: white;
 	font-weight: bold;
-	font-size: 3rem;
+	font-size: 5rem;
 `;
 
 export const BackgroundImage = styled.img`
@@ -38,17 +37,18 @@ export const ButtonWrapper = styled.div`
 	display: flex;
 	text-align: right;
 	z-index: 0;
-	top: calc(30% + 150px);
-	right: 10%;
+	top: calc(30% + 200px);
+	right: 5%;
 `;
 
 export const StyledButton = styled.button`
 	background-color: rgba(255, 255, 255, 0.22);
 	font-weight: bold;
-	font-size: 1.3rem;
-	color: #1f4b61;
-	border: 2px solid #1f4b61;
+	font-size: 2rem;
+	color: white;
+	border: 2px solid rgba(74, 94, 122, 0.84);
 	border-radius: 5px;
+	padding: 5px;
 
 	&::before {
 		content: 'Начать изучение →';
