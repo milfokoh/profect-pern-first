@@ -43,8 +43,8 @@ const App = observer(() => {
 				{user.isAuth ? (
 					<AsideAdminBar collapsed={collapsed} setCollapsed={setCollapsed} />
 				) : (
-					// null
-					<AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />
+					null
+					// <AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />
 				)}
 
 				<Layout>
