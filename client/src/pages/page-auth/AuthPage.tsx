@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 import { Context } from '../..';
@@ -9,11 +9,20 @@ import {
 	REGISTRATION_ROUTE,
 } from '../../utils/consts';
 import { login, registration } from '../../http/userAPI';
-import './AuthPage.css';
+import './AuthPage.styled.ts';
 import { observer } from 'mobx-react-lite';
-import { Layout } from '@app/../UI';
+import { TAuthPage } from './AuthPage.types.ts';
+import {
+	BackgroundImage,
+	BodyForm,
+	ButtonSub,
+	HeaderTitle,
+	StyledFormItem,
+	WrapperForm,
+} from './AuthPage.styled.ts';
+import { FigureImage } from '@app/../UI';
 
-const AuthPage = observer(() => {
+const AuthPage: FC<TAuthPage> = observer(() => {
 	const { user } = useContext(Context);
 	const location = useLocation();
 	const history = useHistory();
@@ -38,59 +47,50 @@ const AuthPage = observer(() => {
 		}
 	};
 	return (
-		<Layout className='wrapper-form'>
-			<Form layout='vertical' className='body-form'>
-				<h2 className='center'>{isLogin ? 'Авторизация' : 'Регистрация'}</h2>
-				<Form.Item label='Логин'>
+		<WrapperForm>
+			<BackgroundImage src='/image/page-auth/background/background_image_rgo.jpg' />
+			<BodyForm layout='vertical'>
+				<HeaderTitle className='center'>
+					{isLogin ? 'Авторизация' : 'Регистрация'}
+				</HeaderTitle>
+				<StyledFormItem label='Логин'>
 					<Input
 						size='large'
 						placeholder='Введите логин'
 						value={email}
 						onChange={e => setEmail(e.target.value)}
-						className='color-border'
 					/>
-				</Form.Item>
-				<Form.Item label='Пароль'>
+				</StyledFormItem>
+				<StyledFormItem label='Пароль'>
 					<Input.Password
 						size='large'
 						placeholder='Введите пароль'
 						value={password}
 						onChange={e => setPassword(e.target.value)}
-						className='color-border'
 					/>
-				</Form.Item>
-				<Form.Item>
-					<Button type='primary' className='btn-sub' onClick={click}>
+				</StyledFormItem>
+				<StyledFormItem>
+					<ButtonSub type='primary' onClick={click}>
 						{isLogin ? 'Войти' : 'Регистрация'}
-					</Button>
-				</Form.Item>
+					</ButtonSub>
+				</StyledFormItem>
 				{isLogin ? (
-					<p className='p-auth'>
+					<p>
 						Еще нет аккаунта?
-						<Button
-							color='default'
-							variant='link'
-							href={REGISTRATION_ROUTE}
-							className='btn-link'
-						>
+						<Button color='default' variant='link' href={REGISTRATION_ROUTE}>
 							Зарегистрируйся!
 						</Button>
 					</p>
 				) : (
-					<p className='p-auth'>
+					<p>
 						Уже есть аккаунт?
-						<Button
-							color='default'
-							variant='link'
-							href={LOGIN_ROUTE}
-							className='btn-link'
-						>
+						<Button color='default' variant='link' href={LOGIN_ROUTE}>
 							Войти!
 						</Button>
 					</p>
 				)}
-			</Form>
-		</Layout>
+			</BodyForm>
+		</WrapperForm>
 	);
 });
 
