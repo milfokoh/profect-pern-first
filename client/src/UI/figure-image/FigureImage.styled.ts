@@ -28,7 +28,6 @@ export const Headline = styled.h1`
 export const BackgroundImage = styled.img`
 	width: 100%;
 	height: auto;
-	border-radius: 100px;
 	z-index: -1;
 `;
 
