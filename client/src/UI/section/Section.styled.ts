@@ -6,7 +6,7 @@ export const SectionContainer = styled.section`
 	width: 338px;
 	height: auto;
 	gap: 30px;
-	border-radius: 30px;
+	border-radius: 10px;
 	background-color: white;
 	padding: 20px;
 `;
@@ -33,7 +33,7 @@ export const Title = styled.h1`
 `;
 
 export const SectionDescription = styled.div`
-	border-radius: 30px;
+	border-radius: 10px;
 	padding: 15px;
 	background-color: rgba(217, 217, 217, 0.3);
 `;

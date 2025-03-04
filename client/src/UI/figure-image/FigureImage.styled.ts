@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 50px;
+	display: block;
+	padding: 0;
 `;
 
 export const Header = styled.div`
@@ -28,7 +30,6 @@ export const Headline = styled.h1`
 export const BackgroundImage = styled.img`
 	width: 100%;
 	height: auto;
-	border-radius: 100px;
 	z-index: -1;
 `;
 
