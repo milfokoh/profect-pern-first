@@ -13,7 +13,7 @@ export const WrapperForm = styled(Layout)`
 
 export const BodyForm = styled(Form)`
 	position: relative;
-	top: calc(30%);
+	top: calc(20%);
 	width: 500px;
 	max-width: 850px;
 	max-height: 850px;
