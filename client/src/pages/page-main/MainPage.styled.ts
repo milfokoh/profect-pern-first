@@ -1,25 +1,103 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-import { Layout, Section } from '@app/../UI';
+import { Layout, Section, GalleryImage, Divider } from '@app/../UI';
+import { COLOR } from '@app/../constant';
 
-export const Container = styled(Layout)`
+export const ContainerRGO = styled(Layout)`
 	display: grid;
-	grid-template:
-		'list section'
-		'list planet'
-		'. planet';
-	justify-items: center;
 	gap: 20px;
 `;
 
+export const InfoBlock = styled.div`
+	display: flex;
+	justify-content: center;
+	padding: 30px;
+	background-color: ${COLOR.backgroundColorWhite};
+`;
+
+export const GalleryImageConteiner = styled.div`
+	display: grid;
+	// background-color: white;
+	// border-radius: 20px;
+`;
+
+export const InfoBlockRGO = styled.div`
+	display: flex;
+	align-items: center;
+	padding: 20px;
+`;
+
+export const GalleryContainer = styled.div`
+	width: 70%;
+`;
+
+export const StyledGalleryImage = styled(GalleryImage)`
+	width: 100%;
+	scale: 1.5;
+`;
+
+export const InfoRGOConteiner = styled.div`
+	width: 30%;
+	max-height: 400px;
+	padding: 20px;
+	background-color: ${COLOR.lightBlue};
+	border-radius: 20px;
+	color: ${COLOR.textWhite};
+`;
+
+export const StyledTextRGO = styled.p`
+	padding-block: 10px;
+
+	font-size: 1.2rem;
+	color: ${COLOR.textWhite};
+`;
+
+export const Note = styled.p`
+	font-size: 0.8rem;
+	margin-bottom: 0;
+	padding-bottom: 0;
+`;
+
+export const StyledDivider = styled(Divider)`
+	padding: 0;
+	margin: 0;
+`;
+
+export const Description = styled.div`
+	padding-bottom: 10px;
+	padding-left: 50px;
+`;
+
+export const LinkRGO = styled.a`
+	color: ${COLOR.textPrimary};
+	font-size: 1.1rem;
+`;
+
+export const StyledTitleRGO = styled.a`
+	padding-block: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2.3rem;
+	// text-align: center;
+	color: ${COLOR.textPrimary};
+
+	&:hover {
+		color: ${COLOR.darkBlue};
+	}
+`;
+
+export const CourseContent = styled.div`
+	display: flex;
+`;
+
 export const StyledLayout = styled.div`
-	width: 45vw;
-	height: auto;
+	width: 60vw;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	border-radius: 20px;
 	padding: 20px;
+	margin-inline: 20px;
 	background-color: white;
 	grid-area: list;
 `;
@@ -30,168 +108,88 @@ export const StyledTitleContainer = styled.div`
 	padding: 30px;
 `;
 
+export const ContainerGrid = styled.div`
+	display: grid;
+	max-width: 50%;
+`;
+
+export const HeadContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+export const Head = styled.div`
+	display: flex;
+	justify-content: center;
+`;
+
+export const HeadTitle = styled.h1`
+	color: ${COLOR.textPrimary};
+`;
+
+export const HeaderDecription = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 30px 0;
+`;
+
 export const StyledTitle = styled.h1`
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 3rem;
-	color: #2c6c8b;
+	text-align: center;
+	color: ${COLOR.textPrimary};
 `;
 
+export const StyledText = styled.p`
+	font-size: 1.2rem;
+	color: ${COLOR.textPrimary};
+`;
+
+export const AboutCourse = styled.div`
+	display: flex;
+	gap: 20px;
+	padding: 30px;
+	border-radius: 10px;
+	background: ${COLOR.lightBlue};
+	// background-image: url('https://rgo.ru/upload/content_block/images/8dd887d9be55bd54353c1be756530d4b/676fd70333714fc46960f0067349360a1.jpg');
+	// background-size: cover;
+	// background-position: center;
+	box-shadow: 0 1px 5px rgba(74, 94, 122, 0.3);
+	align-items: flex-start;
+`;
+
+export const PrologCourse = styled.p`
+	font-size: 1.4rem;
+	color: ${COLOR.textWhite};
+`;
+
+export const StyledImage = styled.img``;
+
 export const SectionConteiner = styled.div`
+	padding-inline: 20px;
 	display: flex;
 	justify-content: space-evenly;
 `;
 
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
 export const StyledBackgroundImage = styled.img`
-	max-width: 560px;
-	grid-area: planet;
-	
+	max-width: 520px;
+	// animation: ${pulseAnimation} 5s infinite;
 `;
 
 export const StyledSection = styled(Section)`
 	grid-area: section;
 `;
-
-// .content {
-// 	min-height: calc(100vh - 24px - 64px);
-// 	margin: 24px 16px;
-// 	padding: 24px;
-// 	background: var(--antd-token-color-bg-container);
-// 	border-radius: var(--antd-token-border-radius-lg);
-// }
-
-// .space {
-// 	display: flex;
-// }
-
-// .the-label {
-// 	padding: 100px;
-// 	background-image: url(C:\Users\Alesya\Desktop\alesya\учеба\project-pern-first\client\src\components\image\main-back.jpg);
-// 	/* border: 1px solid red; */
-// 	border-radius: 85px;
-// }
-
-// .columns {
-// 	align-content: center;
-// 	/* сделать выравнивание */
-// 	color: #2c6c8b;
-// 	/* border: 1px solid green; */
-// }
-
-// .the-info {
-// 	justify-self: center;
-// 	width: 90%;
-// 	/* border: 1px solid red; */
-// }
-
-// .top-brdr {
-// 	margin-top: 10vh;
-// 	margin-bottom: 10vh;
-// 	border-top: 2px solid rgb(107, 107, 107);
-// }
-
-// .color {
-// 	background-color: rgba(240, 255, 255, 0.304);
-// }
-
-// b {
-// 	font-size: 45px;
-// }
-
-// .first {
-// 	font-weight: bold;
-// 	font-size: 30px;
-// }
-
-// .modul-list {
-// 	width: 50vw;
-// 	height: auto;
-// 	display: flex;
-// 	flex-direction: column;
-// 	gap: 10px;
-
-// 	border: 2px solid red;
-// }
-
-// .lets-start {
-// 	align-self: end;
-// 	color: rgb(0, 58, 0);
-// 	font-weight: bold;
-// 	background-color: rgba(240, 255, 255, 0.304) !important;
-// 	border: 2px solid rgb(0, 58, 0) !important;
-// }
-
-// .lets-start:hover {
-// 	color: rgb(255, 255, 255) !important;
-// 	background-color: rgba(61, 95, 55, 0.879) !important;
-// }
-
-// .space-top {
-// 	margin-top: 7vh;
-// }
-
-// .bio-course {
-// 	display: grid;
-// 	/* align-items: center; */
-// 	/* justify-items: center; */
-// 	font-weight: 400;
-// 	font-size: 15px;
-// 	/* padding: 10px; */
-// }
-
-// .border-right {
-// }
-
-// .second-row {
-// 	border: 1px solid red;
-// }
-
-// .col-center {
-// 	display: grid;
-// 	align-items: center;
-// 	justify-items: center;
-// }
-
-// .col-header {
-// 	font-weight: 500;
-// 	font-size: 20px;
-// }
-
-// .col-info {
-// 	font-size: 15px;
-// }
-
-// .wrapper-header {
-// 	display: flex;
-// 	align-items: baseline;
-// 	justify-content: center;
-// }
-
-// .block-info {
-// 	display: flex;
-// 	flex-direction: column;
-// }
-
-// .wrapper-grid {
-// 	display: grid;
-// 	/* grid-template-columns: repeat(2, 50%); */
-// 	gap: 30px;
-// 	width: 50vw;
-// 	height: auto;
-// }
-
-// .module-wrapper {
-// 	display: flex;
-// 	flex-direction: column;
-// 	padding: 20px;
-// 	border: 1px solid black;
-// 	border-radius: 10px;
-// }
-
-// .title {
-// 	display: flex;
-// 	align-items: baseline;
-// 	justify-content: center;
-// 	margin-bottom: 20px;
-// 	border: 1px solid red;
-// }

@@ -1,6 +1,7 @@
 .content {
 	min-height: calc(100vh - 24px - 64px);
-	padding: 24px;
+	padding: 20px;
+	/* padding: 24px; */
 	background: var(--antd-token-color-bg-container);
 	border-radius: var(--antd-token-border-radius-lg);
 }

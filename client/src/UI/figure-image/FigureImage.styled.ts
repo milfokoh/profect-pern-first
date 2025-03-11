@@ -1,3 +1,4 @@
+import { COLOR } from '@app/../constant';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -21,7 +22,7 @@ export const Header = styled.div`
 `;
 
 export const Headline = styled.h1`
-	color: white;
+	color: ${COLOR.textPrimary};
 	font-weight: bold;
 	font-size: 5rem;
 `;
