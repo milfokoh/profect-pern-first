@@ -15,7 +15,7 @@ import { Layout } from './UI';
 
 const App = observer(() => {
 	const { user } = useContext(Context);
-	const [collapsed, setCollapsed] = useState(false);
+	const [collapsed, setCollapsed] = useState(true);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -40,12 +40,12 @@ const App = observer(() => {
 	return (
 		<BrowserRouter>
 			<Layout>
-				{user.isAuth ? (
-					<AsideAdminBar collapsed={collapsed} setCollapsed={setCollapsed} />
-				) : (
-					null
+				{
+					user.isAuth ? (
+						<AsideAdminBar collapsed={collapsed} setCollapsed={setCollapsed} />
+					) : null
 					// <AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />
-				)}
+				}
 
 				<Layout>
 					<HeadBar />

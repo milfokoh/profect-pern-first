@@ -5,9 +5,9 @@ import {
 	EditTwoTone,
 	PlusOutlined,
 } from '@ant-design/icons';
-import { fetchSection } from '../../../http/sectionAPI';
+import { fetchSection, fetchUser } from '../../../http/sectionAPI';
 import { Context } from '../../..';
-import './TableSectionPage.css';
+import './TableUserPage.css';
 import { CreateMaterial, CreateSection, Spinner } from '../../../components';
 import { Layout } from '@app/../UI';
 import * as XLSX from 'xlsx';
@@ -19,20 +19,16 @@ const columns = [
 		key: 'id',
 	},
 	{
-		title: 'Name',
-		dataIndex: 'name',
-		key: 'name',
+		title: 'Email',
+		dataIndex: 'email',
+		key: 'email',
 	},
 	{
-		title: 'CreatedAt',
-		dataIndex: 'createdAt',
-		key: 'createdAt',
+		title: 'Role',
+		dataIndex: 'role',
+		key: 'role',
 	},
-	{
-		title: 'UpdatedAt',
-		dataIndex: 'updatedAt',
-		key: 'updatedAt',
-	},
+
 	{
 		title: 'Action',
 		dataIndex: '',
@@ -45,7 +41,7 @@ const columns = [
 	},
 ];
 
-const TableSectionPage = () => {
+const TableUserPage = () => {
 	const { section } = useContext(Context);
 	const [dataFetch, setDataFetch] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -64,26 +60,17 @@ const TableSectionPage = () => {
 	const exportToExcel = () => {
 		const wb = XLSX.utils.book_new();
 		const ws = XLSX.utils.json_to_sheet(dataFetch);
-		XLSX.utils.book_append_sheet(wb, ws, 'Sections');
-		XLSX.writeFile(wb, 'sections.xlsx');
+		XLSX.utils.book_append_sheet(wb, ws, 'User');
+		XLSX.writeFile(wb, 'user.xlsx');
 	};
 
 	const headerTable = ({ showModal }) => {
 		return (
 			<Row>
 				<Col className='first col'>
-					<h3>Таблица разделов</h3>
+					<h3>Таблица пользователей</h3>
 				</Col>
 				<Col className='second col'>
-					<Button
-						type='primary'
-						className='btn-functionsl'
-						icon={<PlusOutlined />}
-						//TODO: onClick={} прицепить модальное окно
-						onClick={showModal}
-					>
-						Добавить
-					</Button>
 					<Button
 						type='primary'
 						className='btn-functionsl'
@@ -101,8 +88,8 @@ const TableSectionPage = () => {
 		const fetchData = async () => {
 			setLoading(true);
 			try {
-				const data = await fetchSection();
-				setDataFetch(data);
+				const data = await fetchUser();
+				setDataFetch(data.rows);
 			} catch (error) {
 				console.error('Ошибка при получении материалов:', error);
 			} finally {
@@ -114,11 +101,12 @@ const TableSectionPage = () => {
 	}, []);
 
 	const data = dataFetch.map((item, index) => ({ ...item, key: index }));
-	console.log(dataFetch, 'datafetch section~~~~');
+	console.log(dataFetch, 'datafetch user~~~~');
 
 	if (loading) {
 		return <Spinner />;
 	}
+
 	return (
 		<Layout className='body-wrapper'>
 			<Table
@@ -142,4 +130,4 @@ const TableSectionPage = () => {
 		</Layout>
 	);
 };
-export default TableSectionPage;
+export default TableUserPage;

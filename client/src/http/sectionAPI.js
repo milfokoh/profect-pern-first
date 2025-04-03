@@ -25,3 +25,8 @@ export const fetchMaterial = async () => {
 	const { data } = await $host.get('api/material');
 	return data;
 };
+
+export const fetchUser = async () => {
+	const { data } = await $host.get('api/user/get');
+	return data;
+};

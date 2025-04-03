@@ -59,6 +59,8 @@ const HeadBar = observer(() => {
 		getItem('1', 'Личный кабинет', <UserOutlined />, LOGIN_ROUTE),
 	];
 
+	const admin = [getItem('0', 'Выйти из системы', null, HOME_ROUTE)];
+
 	const handlerClick = e => {
 		return history.push(items[e.key].href);
 	};
@@ -70,15 +72,25 @@ const HeadBar = observer(() => {
 					{user.isAuth ? 'Админ-панель' : 'География'}
 				</h2>
 			</div>
-			<div className='demo-logo h-right'>
+			{user.isAuth ? (
 				<Menu
-				className='menu-horizontal-my'
-					theme='light'
+					className='menu-horizontal-my'
+					theme='dark'
 					mode='horizontal'
-					items={items}
-					onClick={e => handlerClick(e)}
+					items={admin}
+					onClick={() => handlePageClick()}
 				/>
-			</div>
+			) : (
+				<div className='demo-logo h-right'>
+					<Menu
+						className='menu-horizontal-my'
+						theme='light'
+						mode='horizontal'
+						items={items}
+						onClick={e => handlerClick(e)}
+					/>
+				</div>
+			)}
 			{/* <div className='demo-logo h-right'>
 				<p className='login-text' onClick={handlePageClick} title='Войти'>
 					Личный кабинет

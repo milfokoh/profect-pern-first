@@ -46,6 +46,25 @@ class UserController {
 		const token = generateJwt(req.user.id, req.user.email, req.user.role);
 		return res.json({ token });
 	}
+
+	async getAll(req, res) {
+		let { title, sectionId } = req.query;
+		let data;
+		if (!sectionId && !title) {
+			data = await User.findAndCountAll({});
+		}
+		if (sectionId && !title) {
+			data = await User.findAndCountAll({
+				where: { sectionId },
+			});
+		}
+		if (!sectionId && title) {
+			data = await User.findAndCountAll({
+				where: { title },
+			});
+		}
+		return res.json(data);
+	}
 }
 
 module.exports = new UserController();
