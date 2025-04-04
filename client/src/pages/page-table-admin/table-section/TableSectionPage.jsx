@@ -129,16 +129,11 @@ const TableSectionPage = () => {
 				dataSource={data}
 				title={() => headerTable({ showModal })}
 			/>
-			<CreateMaterial
+			<CreateSection
 				open={isModalOpen}
 				onOk={handleOk}
 				onCancel={handleCancel}
 			/>
-			{/* <CreateSection
-				open={isModalOpen}
-				onOk={handleOk}
-				onCancel={handleCancel}
-			/> */}
 		</Layout>
 	);
 };

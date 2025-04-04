@@ -5,10 +5,10 @@ import {
 	EditTwoTone,
 	PlusOutlined,
 } from '@ant-design/icons';
-import { fetchMaterial, fetchSection } from '../../../http/sectionAPI';
+import { fetchMaterial } from '../../../http/sectionAPI';
 import { Context } from '../../..';
 import './TableTextPage.css';
-import { CreateMaterial, CreateSection, Spinner } from '../../../components';
+import { CreateMaterial, Spinner } from '../../../components';
 import { Layout } from '@app/../UI';
 import * as XLSX from 'xlsx';
 
@@ -140,12 +140,7 @@ const TableTextPage = () => {
 				dataSource={data}
 				title={() => headerTable({ showModal })}
 			/>
-			{/* <CreateMaterial
-				open={isModalOpen}
-				onOk={handleOk}
-				onCancel={handleCancel}
-			/> */}
-			<CreateSection
+			<CreateMaterial
 				open={isModalOpen}
 				onOk={handleOk}
 				onCancel={handleCancel}

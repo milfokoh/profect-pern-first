@@ -1,14 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { Button, Col, Row, Table } from 'antd';
-import {
-	ArrowDownOutlined,
-	EditTwoTone,
-	PlusOutlined,
-} from '@ant-design/icons';
-import { fetchSection, fetchUser } from '../../../http/sectionAPI';
+import { ArrowDownOutlined, EditTwoTone } from '@ant-design/icons';
+import { fetchUser } from '../../../http/sectionAPI';
 import { Context } from '../../..';
 import './TableUserPage.css';
-import { CreateMaterial, CreateSection, Spinner } from '../../../components';
+import { Spinner } from '../../../components';
 import { Layout } from '@app/../UI';
 import * as XLSX from 'xlsx';
 
@@ -45,17 +41,6 @@ const TableUserPage = () => {
 	const { section } = useContext(Context);
 	const [dataFetch, setDataFetch] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
-	const showModal = () => {
-		setIsModalOpen(true);
-	};
-	const handleOk = () => {
-		setIsModalOpen(false);
-	};
-	const handleCancel = () => {
-		setIsModalOpen(false);
-	};
 
 	const exportToExcel = () => {
 		const wb = XLSX.utils.book_new();
@@ -64,7 +49,7 @@ const TableUserPage = () => {
 		XLSX.writeFile(wb, 'user.xlsx');
 	};
 
-	const headerTable = ({ showModal }) => {
+	const headerTable = () => {
 		return (
 			<Row>
 				<Col className='first col'>
@@ -115,18 +100,8 @@ const TableUserPage = () => {
 				}}
 				columns={columns}
 				dataSource={data}
-				title={() => headerTable({ showModal })}
+				title={() => headerTable()}
 			/>
-			<CreateMaterial
-				open={isModalOpen}
-				onOk={handleOk}
-				onCancel={handleCancel}
-			/>
-			{/* <CreateSection
-				open={isModalOpen}
-				onOk={handleOk}
-				onCancel={handleCancel}
-			/> */}
 		</Layout>
 	);
 };
