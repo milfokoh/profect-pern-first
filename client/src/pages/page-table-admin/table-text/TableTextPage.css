@@ -1,0 +1,9 @@
+.second {
+	display: flex;
+	align-items: center;
+	justify-content: end; /* space-evenly */
+}
+
+.btn-functionsl {
+	margin-right: 5px;
+}
