@@ -1,9 +1,13 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Calendar, Col, Empty, Row } from 'antd';
 import './AdminHomePage.css';
 import { Layout } from '@app/../UI';
 
 const AdminHomePage = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<Layout className='body-wrapper'>
 			<h2>Добро пожаловать на панель администратора!</h2>

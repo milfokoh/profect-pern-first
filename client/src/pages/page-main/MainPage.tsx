@@ -44,6 +44,10 @@ const { Content } = Layout;
 const MainPage: FC<TMainPage> = observer(() => {
 	const history = useHistory();
 
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<div className='content'>
 			<FigureImage
