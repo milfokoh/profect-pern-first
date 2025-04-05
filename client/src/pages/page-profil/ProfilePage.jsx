@@ -38,7 +38,11 @@ const ProfilePage = observer(() => {
 						>
 							<h4 className='progress-name'>География</h4>
 							<Progress percent={0} size={[undefined, 20]} />
-							<small>Вам доступен данный курс для прохождения</small>
+							{student.isAuth ? (
+								<small>Вам доступен данный курс для прохождения</small>
+							) : (
+								<small>Даже без авторизации вам доступен данный курс</small>
+							)}
 						</Card>
 					</Col>
 				</Row>
