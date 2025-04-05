@@ -2,6 +2,7 @@ import {
 	ADMIN_ROUTE,
 	COURSE_ROUTE,
 	HOME_ROUTE,
+	LOG_ADMIN_ROUTE,
 	LOGIN_ROUTE,
 	MATERIAL_TABLE_ROUTE,
 	PROFILE_ROUTE,
@@ -13,6 +14,7 @@ import {
 import HomeContent from './pages/page-home/HomeContent';
 import AdminHomePage from './pages/page-admin/AdminHomePage';
 import AuthPage from './pages/page-auth/AuthPage';
+import AuthPageAdmin from './pages/page-auth-admin/AuthPageAdmin';
 import SectionContent from './pages/page-section/SectionContent';
 import TableSectionPage from './pages/page-table-admin/table-section/TableSectionPage';
 import TableUserPage from './pages/page-table-admin/table-user/TableUserPage';
@@ -64,6 +66,10 @@ export const publicRoutes = [
 	{
 		path: REGISTRATION_ROUTE,
 		Component: AuthPage,
+	},
+	{
+		path: LOG_ADMIN_ROUTE,
+		Component: AuthPageAdmin,
 	},
 ];
 

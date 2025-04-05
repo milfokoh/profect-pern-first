@@ -23,26 +23,26 @@ const columns = [
 		dataIndex: 'name',
 		key: 'name',
 	},
-	{
-		title: 'CreatedAt',
-		dataIndex: 'createdAt',
-		key: 'createdAt',
-	},
-	{
-		title: 'UpdatedAt',
-		dataIndex: 'updatedAt',
-		key: 'updatedAt',
-	},
-	{
-		title: 'Action',
-		dataIndex: '',
-		key: 'x',
-		render: () => (
-			<Button>
-				Edit <EditTwoTone />
-			</Button>
-		),
-	},
+	// {
+	// 	title: 'CreatedAt',
+	// 	dataIndex: 'createdAt',
+	// 	key: 'createdAt',
+	// },
+	// {
+	// 	title: 'UpdatedAt',
+	// 	dataIndex: 'updatedAt',
+	// 	key: 'updatedAt',
+	// },
+	// {
+	// 	title: 'Action',
+	// 	dataIndex: '',
+	// 	key: 'x',
+	// 	render: () => (
+	// 		<Button>
+	// 			Edit <EditTwoTone />
+	// 		</Button>
+	// 	),
+	// },
 ];
 
 const TableSectionPage = () => {

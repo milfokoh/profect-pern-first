@@ -28,31 +28,31 @@ const columns = [
 		dataIndex: 'content',
 		key: 'content',
 	},
-	{
-		title: 'CreatedAt',
-		dataIndex: 'createdAt',
-		key: 'createdAt',
-	},
-	{
-		title: 'UpdatedAt',
-		dataIndex: 'updatedAt',
-		key: 'updatedAt',
-	},
-	{
-		title: 'SectionId',
-		dataIndex: 'sectionId',
-		key: 'sectionId',
-	},
-	{
-		title: 'Action',
-		dataIndex: '',
-		key: 'x',
-		render: () => (
-			<Button>
-				Edit <EditTwoTone />
-			</Button>
-		),
-	},
+	// {
+	// 	title: 'CreatedAt',
+	// 	dataIndex: 'createdAt',
+	// 	key: 'createdAt',
+	// },
+	// {
+	// 	title: 'UpdatedAt',
+	// 	dataIndex: 'updatedAt',
+	// 	key: 'updatedAt',
+	// },
+	// {
+	// 	title: 'SectionId',
+	// 	dataIndex: 'sectionId',
+	// 	key: 'sectionId',
+	// },
+	// {
+	// 	title: 'Action',
+	// 	dataIndex: '',
+	// 	key: 'x',
+	// 	render: () => (
+	// 		<Button>
+	// 			Edit <EditTwoTone />
+	// 		</Button>
+	// 	),
+	// },
 ];
 
 const TableTextPage = () => {

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button, Col, Layout, Row } from 'antd';
 import './FooterMulti.css';
 import { Context } from '../..';
-import { HOME_ROUTE, COURSE_ROUTE } from '../../utils/consts';
+import { HOME_ROUTE, COURSE_ROUTE, LOG_ADMIN_ROUTE } from '../../utils/consts';
 
 const { Footer } = Layout;
 
@@ -32,13 +33,20 @@ const navigationForAuth = () => {
 
 const FooterMulti = () => {
 	const { user } = useContext(Context);
+	const history = useHistory();
 
 	return (
 		<Footer className='foot'>
 			{user.isAuth && navigationForAuth()}
-			<p style={{ textAlign: 'center' }}>
-				FIRST DESIGN ©{new Date().getFullYear()} Created by ALESYA TROSHINA
-			</p>
+			<p>FIRST DESIGN ©{new Date().getFullYear()} Created by ALESYA TROSHINA</p>
+			<a
+				className='link-dev'
+				onClick={() => {
+					history.push(LOG_ADMIN_ROUTE);
+				}}
+			>
+				Страница разработчика
+			</a>
 		</Footer>
 	);
 };

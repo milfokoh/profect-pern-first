@@ -13,14 +13,15 @@ export const WrapperForm = styled(Layout)`
 
 export const BodyForm = styled(Form)`
 	position: relative;
+	top: calc(20%);
 	width: 500px;
 	max-width: 850px;
 	max-height: 850px;
 	margin: 0 auto;
 	padding: 30px;
-	border: 2px solid #4a5e7a;
+	border: 2px solid rgb(26, 40, 26);
 	border-radius: 10px;
-	background-color: rgba(74, 94, 122, 0.53);
+	background-color: rgba(26, 40, 26, 0.61);
 	color: white;
 	z-index: 1;
 `;
@@ -39,9 +40,13 @@ export const ButtonSub = styled(Button)`
 	width: 100%;
 	height: 50px;
 	margin-bottom: 0;
-	background-color: rgb(0, 21, 41);
+	background-color: rgb(32, 200, 77);
 
-	&:hover {
+	&:where(.css-dev-only-do-not-override-ccdg5a).ant-btn-variant-solid:not(
+			:disabled
+		):not(.ant-btn-disabled):hover {
+		color: #000000;
+		background-color: rgb(0, 255, 68);
 	}
 `;
 export const HeaderTitle = styled.h2`
@@ -49,6 +54,5 @@ export const HeaderTitle = styled.h2`
 `;
 
 export const StyledFormItem = styled(Form.Item)`
-	margin-bottom: 15px;
 	color: white;
 `;

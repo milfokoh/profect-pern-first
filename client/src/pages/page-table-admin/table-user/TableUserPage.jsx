@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Button, Col, Row, Table } from 'antd';
 import { ArrowDownOutlined, EditTwoTone } from '@ant-design/icons';
-import { fetchUser } from '../../../http/sectionAPI';
+import { fetchStudent, fetchUser } from '../../../http/sectionAPI';
 import { Context } from '../../..';
 import './TableUserPage.css';
 import { Spinner } from '../../../components';
@@ -15,26 +15,40 @@ const columns = [
 		key: 'id',
 	},
 	{
-		title: 'Email',
+		title: 'Почта',
 		dataIndex: 'email',
 		key: 'email',
 	},
 	{
-		title: 'Role',
-		dataIndex: 'role',
-		key: 'role',
+		title: 'Имя',
+		dataIndex: 'firstName',
+		key: 'firstName',
 	},
-
 	{
-		title: 'Action',
-		dataIndex: '',
-		key: 'x',
-		render: () => (
-			<Button>
-				Edit <EditTwoTone />
-			</Button>
-		),
+		title: 'Фамилия',
+		dataIndex: 'lastName',
+		key: 'lastName',
 	},
+	{
+		title: 'Университет',
+		dataIndex: 'univer',
+		key: 'univer',
+	},
+	{
+		title: 'Группа',
+		dataIndex: 'groupUni',
+		key: 'groupUni',
+	},
+	// {
+	// 	title: 'Action',
+	// 	dataIndex: '',
+	// 	key: 'x',
+	// 	render: () => (
+	// 		<Button>
+	// 			Edit <EditTwoTone />
+	// 		</Button>
+	// 	),
+	// },
 ];
 
 const TableUserPage = () => {
@@ -73,7 +87,7 @@ const TableUserPage = () => {
 		const fetchData = async () => {
 			setLoading(true);
 			try {
-				const data = await fetchUser();
+				const data = await fetchStudent();
 				setDataFetch(data.rows);
 			} catch (error) {
 				console.error('Ошибка при получении материалов:', error);
