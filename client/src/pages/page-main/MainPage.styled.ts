@@ -36,6 +36,11 @@ export const StyledGalleryImage = styled(GalleryImage)`
 	scale: 1.5;
 `;
 
+export const CollapseContent = styled.div`
+	padding-left: 20px;
+	margin-top: 0;
+`;
+
 export const InfoRGOConteiner = styled.div`
 	width: 30%;
 	max-height: 400px;

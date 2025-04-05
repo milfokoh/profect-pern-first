@@ -28,7 +28,7 @@ import {
 	InfoRGOConteiner,
 	InfoBlockRGO,
 	AboutCourse,
-	ImageStyled,
+	CollapseContent,
 	PrologCourse,
 	CourseContent,
 	HeadTitle,
@@ -89,9 +89,13 @@ const MainPage: FC<TMainPage> = observer(() => {
 					{modul.map((data, index) => (
 						<Collapse
 							title={data.title}
-							description={data.description}
+							description={data.description.map((desc, descIndex) => (
+								<CollapseContent key={descIndex}>{`${
+									descIndex + 1
+								}. ${desc}`}</CollapseContent>
+							))}
 							key={index}
-						></Collapse>
+						/>
 					))}
 				</StyledLayout>
 				<StyledBackgroundImage src='/image/page-main/icon/planet.svg' />
