@@ -131,7 +131,7 @@ const TableSectionPage = () => {
 			/>
 			<CreateSection
 				open={isModalOpen}
-				onOk={handleOk}
+				setIsModalOpen={setIsModalOpen}
 				onCancel={handleCancel}
 			/>
 		</Layout>

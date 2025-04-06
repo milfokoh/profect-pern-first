@@ -18,20 +18,21 @@ const App = observer(() => {
 	const [collapsed, setCollapsed] = useState(true);
 	const [loading, setLoading] = useState(false);
 
-	// useEffect(() => {
-	// 	check()
-	// 		.then(data => {
-	// 			user.setUser(data);
-	// 			user.setIsAuth(true);
-	// 		})
-	// 		.finally(() => setLoading(false));
-	// 	check()
-	// 		.then(data => {
-	// 			student.setUser(data);
-	// 			student.setIsAuth(true);
-	// 		})
-	// 		.finally(() => setLoading(false));
-	// }, []);
+	useEffect(() => {
+		check()
+			.then(data => {
+				user.setUser(data);
+				user.setIsAuth(true);
+				console.log(data, 'DATA');
+			})
+			.finally(() => setLoading(false));
+		// check()
+		// 	.then(data => {
+		// 		student.setUser(data);
+		// 		student.setIsAuth(true);
+		// 	})
+		// 	.finally(() => setLoading(false));
+	}, []);
 
 	if (loading) {
 		return <Spinner />;

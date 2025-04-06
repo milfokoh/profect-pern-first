@@ -3,6 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 
 export const createSection = async section => {
 	const { data } = await $authHost.post('api/section', section);
+	console.log(data, 'LAAAA');
 	return data;
 };
 

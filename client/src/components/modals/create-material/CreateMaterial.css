@@ -1,3 +1,16 @@
 .form-section {
 	margin-top: 25px;
 }
+
+.drop-wrapper-list {
+	display: flex;
+	flex-direction: row;
+}
+
+.drop-list {
+	width: 80%;
+}
+.sbm-btnn {
+	width: 100%;
+	margin-top: 10px;
+}

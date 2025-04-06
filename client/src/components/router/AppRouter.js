@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Context } from '../..';
-import authRoutes, { publicRoutes } from '../../routes';
 import { HOME_ROUTE } from '../../utils/consts';
 import { observer } from 'mobx-react-lite';
+import { authRoutes, publicRoutes } from '@app/../routes';
 
 const AppRouter = observer(() => {
 	const { user, student } = useContext(Context);

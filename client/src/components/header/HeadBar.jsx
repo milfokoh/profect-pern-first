@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { Context } from '../..';
@@ -26,6 +26,7 @@ const HeadBar = observer(() => {
 	const history = useHistory();
 	const token = localStorage.getItem('token');
 	const isTokenEmpty = !token;
+
 	console.log(isTokenEmpty, 'is empty token?');
 
 	const handlePageClick = () => {
@@ -39,6 +40,20 @@ const HeadBar = observer(() => {
 		} else {
 			history.push(LOGIN_ROUTE);
 		}
+	};
+
+	const logoutClick = () => {
+		if (student.isAuth) {
+			student.setUser({});
+			student.setIsAuth(false);
+
+			if (!isTokenEmpty) {
+				localStorage.removeItem('token');
+			}
+		}
+		// else {
+		// history.push(LOGIN_ROUTE);
+		// }
 	};
 
 	const styleUser = {
@@ -80,7 +95,14 @@ const HeadBar = observer(() => {
 	const admin = [getItem('0', 'Выйти из системы', null, HOME_ROUTE)];
 
 	const handlerClick = e => {
-		return history.push(items[e.key].href);
+		const selectedItem = items[e.key];
+		if (selectedItem) {
+			if (selectedItem.label === 'Выйти из системы') {
+				logoutClick();
+			} else {
+				history.push(selectedItem.href);
+			}
+		}
 	};
 
 	return (
@@ -98,7 +120,7 @@ const HeadBar = observer(() => {
 					theme='dark'
 					mode='horizontal'
 					items={admin}
-					onClick={() => handlePageClick()}
+					onClick={e => handlePageClick(e)}
 				/>
 			) : (
 				<div className='demo-logo h-right'>

@@ -22,7 +22,7 @@ import ProfilPage from './pages/page-profil/ProfilePage';
 import MainPage from './pages/page-main/MainPage';
 import TableTextPage from './pages/page-table-admin/table-text/TableTextPage';
 
-const authRoutes = [
+export const authRoutes = [
 	{
 		path: ADMIN_ROUTE,
 		Component: AdminHomePage,
@@ -72,5 +72,3 @@ export const publicRoutes = [
 		Component: AuthPageAdmin,
 	},
 ];
-
-export default authRoutes;

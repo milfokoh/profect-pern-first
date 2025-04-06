@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Button, Col, Row, Table } from 'antd';
+import { ScrollButton } from '@app/../UI';
 import {
 	ArrowDownOutlined,
 	EditTwoTone,
@@ -64,9 +65,7 @@ const TableTextPage = () => {
 	const showModal = () => {
 		setIsModalOpen(true);
 	};
-	const handleOk = () => {
-		setIsModalOpen(false);
-	};
+
 	const handleCancel = () => {
 		setIsModalOpen(false);
 	};
@@ -78,7 +77,7 @@ const TableTextPage = () => {
 		XLSX.writeFile(wb, 'material.xlsx');
 	};
 
-	const headerTable = ({ showModal }) => {
+	const headerTable = () => {
 		return (
 			<Row>
 				<Col className='first col'>
@@ -142,7 +141,7 @@ const TableTextPage = () => {
 			/>
 			<CreateMaterial
 				open={isModalOpen}
-				onOk={handleOk}
+				setIsModalOpen={setIsModalOpen}
 				onCancel={handleCancel}
 			/>
 		</Layout>
