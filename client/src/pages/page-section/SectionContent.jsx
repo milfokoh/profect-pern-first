@@ -21,7 +21,7 @@ const SectionContent = () => {
 			{section.info.map(info => (
 				<Layout key={info.id}>
 					<Divider key={info.id}>{info.title}</Divider>
-					<p>{info.content}</p>
+					<div className='oth' dangerouslySetInnerHTML={{ __html: info.content }} />
 				</Layout>
 			))}
 		</Layout>

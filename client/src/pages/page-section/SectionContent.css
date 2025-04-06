@@ -3,3 +3,23 @@
 	margin: 24px 16px;
 	padding: 24px;
 }
+p {
+	padding-left: 10px;
+}
+.oth {
+	font-size: 16px;
+}
+
+.info_element {
+	margin: 40px 0px;
+	padding: 24px 32px;
+	border: 1px solid rgb(76, 175, 80);
+	border-radius: 5px;
+}
+
+.border_element {
+	margin: 40px 0px;
+	padding: 20px 32px;
+	border: 1px solid rgb(255, 165, 0);
+	border-radius: 5px;
+}
