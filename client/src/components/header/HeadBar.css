@@ -22,14 +22,59 @@
 	cursor: pointer;
 }
 
+.center {
+	flex: 2;
+}
+
 .h-left {
 	display: flex;
+	flex: 2;
 	/* flex: 1; */
 	margin-left: 100px;
+	/* border: 1px solid red; */
 	cursor: pointer;
 }
 
 .h-right {
 	flex: 1;
 	padding-right: 20px;
+	/* border: 1px solid green; */
+}
+
+/* Стили для выбранных элементов меню */
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light.ant-menu-horizontal
+	> .ant-menu-item-selected::after,
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light
+	> .ant-menu.ant-menu-horizontal
+	> .ant-menu-item-selected::after,
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light.ant-menu-horizontal
+	> .ant-menu-submenu-selected::after,
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light
+	> .ant-menu.ant-menu-horizontal
+	> .ant-menu-submenu-selected::after {
+	border-bottom-color: transparent; /* Устанавливаем цвет нижней границы */
+	border-bottom-width: 0; /* Устанавливаем ширину нижней границы */
+}
+
+/* Стили для выбранных элементов меню */
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light.ant-menu-horizontal
+	> .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light
+	> .ant-menu.ant-menu-horizontal
+	> .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light.ant-menu-horizontal
+	> .ant-menu-submenu-selected,
+:where(.css-dev-only-do-not-override-ccdg5a)
+	.ant-menu-light
+	> .ant-menu.ant-menu-horizontal
+	> .ant-menu-submenu-selected {
+	color: black;
+	background-color: transparent;
 }

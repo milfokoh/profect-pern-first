@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Layout } from 'antd';
 import {
 	AppRouter,
 	AsideBar,
@@ -12,19 +11,27 @@ import {
 import { Context } from '.';
 import { check } from './http/userAPI';
 import { observer } from 'mobx-react-lite';
+import { Layout } from './UI';
 
 const App = observer(() => {
 	const { user } = useContext(Context);
-	const [collapsed, setCollapsed] = useState(false);
-	const [loading, setLoading] = useState(true);
+	const [collapsed, setCollapsed] = useState(true);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		check()
 			.then(data => {
 				user.setUser(data);
 				user.setIsAuth(true);
+				console.log(data, 'DATA');
 			})
 			.finally(() => setLoading(false));
+		// check()
+		// 	.then(data => {
+		// 		student.setUser(data);
+		// 		student.setIsAuth(true);
+		// 	})
+		// 	.finally(() => setLoading(false));
 	}, []);
 
 	if (loading) {
@@ -40,12 +47,12 @@ const App = observer(() => {
 	return (
 		<BrowserRouter>
 			<Layout>
-				{user.isAuth ? (
-					<AsideAdminBar collapsed={collapsed} setCollapsed={setCollapsed} />
-				) : (
-					// null
-					<AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />
-				)}
+				{
+					user.isAuth ? (
+						<AsideAdminBar collapsed={collapsed} setCollapsed={setCollapsed} />
+					) : null
+					// <AsideBar collapsed={collapsed} setCollapsed={setCollapsed} />
+				}
 
 				<Layout>
 					<HeadBar />

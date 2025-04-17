@@ -19,6 +19,17 @@ const Material = sequelize.define('material', {
 	content: { type: DataTypes.STRING },
 });
 
+const Student = sequelize.define('student', {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	email: { type: DataTypes.STRING, unique: true },
+	password: { type: DataTypes.STRING },
+	firstName: { type: DataTypes.STRING },
+	lastName: { type: DataTypes.STRING },
+	univer: { type: DataTypes.STRING },
+	groupUni: { type: DataTypes.STRING },
+	role: { type: DataTypes.STRING, defaultValue: 'STUDENT' },
+});
+
 Section.hasMany(Material, { as: 'info' });
 Material.belongsTo(Section);
 
@@ -26,4 +37,5 @@ module.exports = {
 	User,
 	Section,
 	Material,
+	Student,
 };

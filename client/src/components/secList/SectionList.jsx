@@ -10,6 +10,13 @@ const SectionList = observer(({ section, materials }) => {
 			{section.section.map(sec => (
 				<SectionItem key={sec.id} section={sec} materials={materials} />
 			))}
+			<span className='spam-borrowed'>
+				Материал заимствован с{' '}
+				<a href='https://foxford.ru/wiki/geografiya'>foxford</a>. Все права
+				принадлежат сайту
+				<a href='https://foxford.ru/wiki/geografiya'> foxford.ru</a> и его
+				правообладателям.
+			</span>
 		</Space>
 	);
 });

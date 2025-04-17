@@ -14,6 +14,7 @@ const HomeContent = observer(() => {
 	useEffect(() => {
 		fetchSection().then(data => section.setSection(data));
 		fetchMaterial().then(data => section.setMaterials(data.rows));
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (

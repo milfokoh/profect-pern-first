@@ -31,8 +31,8 @@ function getItem(label, key, icon, href) {
 const items = [
 	getItem('Главная страница', '1', <HomeOutlined />, ADMIN_ROUTE),
 	getItem('Разделы', '2', <UngroupOutlined />, SECTION_TABLE_ROUTE),
-	getItem('Материалы', '3', <OrderedListOutlined />, ADMIN_ROUTE),
-	getItem('Пользователи', '4', <TeamOutlined />, ADMIN_ROUTE),
+	getItem('Материалы', '3', <OrderedListOutlined />, MATERIAL_TABLE_ROUTE),
+	getItem('Пользователи', '4', <TeamOutlined />, USER_TABLE_ROUTE),
 ];
 
 const AsideAdminBar = observer(({ collapsed, setCollapsed }) => {

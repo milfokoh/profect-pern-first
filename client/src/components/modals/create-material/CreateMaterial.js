@@ -3,7 +3,7 @@ import { Context } from '../../..';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 import { observer } from 'mobx-react-lite';
-import { Button, Dropdown, Form, Input, Modal, Space } from 'antd';
+import { Button, Dropdown, Form, Input, message, Modal, Space } from 'antd';
 import './CreateMaterial.css';
 import {
 	createMaterial,
@@ -11,55 +11,56 @@ import {
 	fetchSection,
 } from '../../../http/sectionAPI';
 
-const CreateMaterial = observer(({ open, onOk, onCancel }) => {
+const CreateMaterial = observer(({ open, setIsModalOpen, onCancel }) => {
 	const { section } = useContext(Context);
+	const [name, setName] = useState('');
+	const [sectionTitleId, setSectionTitleId] = useState(0);
+	const [code, setCode] = useState('');
+	const [dataFetch, setDataFetch] = useState([]);
+	const [selectedItem, setSelectedItem] = useState('Раздел');
 
 	useEffect(() => {
 		fetchSection().then(data => section.setSection(data));
 		fetchMaterial().then(data => section.setMaterials(data.rows));
 	}, []);
 
-	const [name, setName] = useState('');
-	const [link, setLink] = useState('');
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await fetchSection();
+				setDataFetch(data);
+			} catch (error) {
+				console.error('Ошибка при получении материалов:', error);
+			}
+		};
+		fetchData();
+	}, []);
 
 	const addMaterial = () => {
 		createMaterial({
 			title: name,
-			content: link,
-			sectionId: section.selectedSec.id,
+			content: code,
+			sectionId: sectionTitleId,
 		});
-		// .then(data => onHide());
+		message.success('Новый материал добавлен');
+		setIsModalOpen(false);
 	};
 
 	const handleMenuClick = e => {
-		// message.info('Click on menu item.');
-		console.log('click', e);
+		const selected = items.find(item => item.key === e.key);
+		if (selected) {
+			setSelectedItem(selected.label);
+			setSectionTitleId(selected.key);
+		}
 	};
-	const items = [
-		{
-			label: '1st menu item',
-			key: '1',
-			icon: <UserOutlined />,
-		},
-		{
-			label: '2nd menu item',
-			key: '2',
-			icon: <UserOutlined />,
-		},
-		{
-			label: '3rd menu item',
-			key: '3',
-			icon: <UserOutlined />,
-			danger: true,
-		},
-		{
-			label: '4rd menu item',
-			key: '4',
-			icon: <UserOutlined />,
-			danger: true,
-			disabled: true,
-		},
-	];
+
+	const items = dataFetch.map(item => ({
+		label: item.name,
+		key: item.id.toString(),
+	}));
+
+	// console.log(, 'BLAYT data');
+
 	const menuProps = {
 		items,
 		onClick: handleMenuClick,
@@ -69,8 +70,8 @@ const CreateMaterial = observer(({ open, onOk, onCancel }) => {
 		<Modal
 			title='Добавить новый материал'
 			open={open}
-			onOk={onOk}
 			onCancel={onCancel}
+			footer={null}
 		>
 			<Form
 				className='form-section'
@@ -79,21 +80,34 @@ const CreateMaterial = observer(({ open, onOk, onCancel }) => {
 				wrapperCol={{ span: 20 }}
 				initialValues={{ remember: true }}
 			>
-				<Dropdown menu={menuProps}>
-					<Button>
-						<Space>
-							Button
-							<DownOutlined />
-						</Space>
-					</Button>
-				</Dropdown>
-				<Form.Item label='Материал' name='section'>
-					<Input placeholder='Введите новое название материала' />
+				<Form.Item label='Тема' name='section'>
+					<Input
+						placeholder='Введите название новогой темы'
+						onChange={e => setName(e.target.value)}
+					/>
 				</Form.Item>
-				<Form.Item label='Ссылка' name='link'>
-					<Input placeholder='Введите ссылку на материал' />
+				<Form.Item label='Код' name='link'>
+					<Input
+						placeholder='Введите текст кода'
+						onChange={e => setCode(e.target.value)}
+					/>
 				</Form.Item>
+
+				<div className='wrapper-list'>
+					<span>Тема раздела: </span>
+					<Dropdown menu={menuProps} className='drop-list'>
+						<Button>
+							<Space>
+								{selectedItem}
+								<DownOutlined />
+							</Space>
+						</Button>
+					</Dropdown>
+				</div>
 			</Form>
+			<Button className='sbm-btnn' color='default' onClick={addMaterial}>
+				Добавить
+			</Button>
 		</Modal>
 	);
 });

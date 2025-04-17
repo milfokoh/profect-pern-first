@@ -3,6 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 
 export const createSection = async section => {
 	const { data } = await $authHost.post('api/section', section);
+	console.log(data, 'LAAAA');
 	return data;
 };
 
@@ -23,5 +24,15 @@ export const createMaterial = async materials => {
 
 export const fetchMaterial = async () => {
 	const { data } = await $host.get('api/material');
+	return data;
+};
+
+export const fetchUser = async () => {
+	const { data } = await $host.get('api/user/get');
+	return data;
+};
+
+export const fetchStudent = async () => {
+	const { data } = await $host.get('api/student/get');
 	return data;
 };

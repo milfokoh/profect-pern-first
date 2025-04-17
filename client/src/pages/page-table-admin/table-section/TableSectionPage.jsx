@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button, Col, Layout, Modal, Row, Table } from 'antd';
+import { useContext, useEffect, useState } from 'react';
+import { Button, Col, Row, Table } from 'antd';
 import {
 	ArrowDownOutlined,
 	EditTwoTone,
@@ -8,7 +8,9 @@ import {
 import { fetchSection } from '../../../http/sectionAPI';
 import { Context } from '../../..';
 import './TableSectionPage.css';
-import { CreateMaterial, CreateSection } from '../../../components';
+import { CreateMaterial, CreateSection, Spinner } from '../../../components';
+import { Layout } from '@app/../UI';
+import * as XLSX from 'xlsx';
 
 const columns = [
 	{
@@ -21,59 +23,32 @@ const columns = [
 		dataIndex: 'name',
 		key: 'name',
 	},
-	{
-		title: 'CreatedAt',
-		dataIndex: 'createdAt',
-		key: 'createdAt',
-	},
-	{
-		title: 'UpdatedAt',
-		dataIndex: 'updatedAt',
-		key: 'updatedAt',
-	},
-	{
-		title: 'Action',
-		dataIndex: '',
-		key: 'x',
-		render: () => (
-			<Button>
-				Edit <EditTwoTone />
-			</Button>
-		),
-	},
+	// {
+	// 	title: 'CreatedAt',
+	// 	dataIndex: 'createdAt',
+	// 	key: 'createdAt',
+	// },
+	// {
+	// 	title: 'UpdatedAt',
+	// 	dataIndex: 'updatedAt',
+	// 	key: 'updatedAt',
+	// },
+	// {
+	// 	title: 'Action',
+	// 	dataIndex: '',
+	// 	key: 'x',
+	// 	render: () => (
+	// 		<Button>
+	// 			Edit <EditTwoTone />
+	// 		</Button>
+	// 	),
+	// },
 ];
-
-const headerTable = ({ showModal }) => {
-	return (
-		<Row>
-			<Col className='first col'>
-				<h3>Таблица разделов</h3>
-			</Col>
-			<Col className='second col'>
-				<Button
-					type='primary'
-					className='btn-functionsl'
-					icon={<PlusOutlined />}
-					//TODO: onClick={} прицепить модальное окно
-					onClick={showModal}
-				>
-					Добавить
-				</Button>
-				<Button
-					type='primary'
-					className='btn-functionsl'
-					icon={<ArrowDownOutlined />}
-					//TODO: выгружать в формате эксель
-				>
-					Выгрузить
-				</Button>
-			</Col>
-		</Row>
-	);
-};
 
 const TableSectionPage = () => {
 	const { section } = useContext(Context);
+	const [dataFetch, setDataFetch] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const showModal = () => {
@@ -86,12 +61,64 @@ const TableSectionPage = () => {
 		setIsModalOpen(false);
 	};
 
+	const exportToExcel = () => {
+		const wb = XLSX.utils.book_new();
+		const ws = XLSX.utils.json_to_sheet(dataFetch);
+		XLSX.utils.book_append_sheet(wb, ws, 'Sections');
+		XLSX.writeFile(wb, 'sections.xlsx');
+	};
+
+	const headerTable = ({ showModal }) => {
+		return (
+			<Row>
+				<Col className='first col'>
+					<h3>Таблица разделов</h3>
+				</Col>
+				<Col className='second col'>
+					<Button
+						type='primary'
+						className='btn-functionsl'
+						icon={<PlusOutlined />}
+						//TODO: onClick={} прицепить модальное окно
+						onClick={showModal}
+					>
+						Добавить
+					</Button>
+					<Button
+						type='primary'
+						className='btn-functionsl'
+						icon={<ArrowDownOutlined />}
+						onClick={exportToExcel}
+					>
+						Выгрузить
+					</Button>
+				</Col>
+			</Row>
+		);
+	};
+
 	useEffect(() => {
-		fetchSection().then(data => section.setSection(data));
+		const fetchData = async () => {
+			setLoading(true);
+			try {
+				const data = await fetchSection();
+				setDataFetch(data);
+			} catch (error) {
+				console.error('Ошибка при получении материалов:', error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchData();
 	}, []);
 
-	const data = section.section.map((item, index) => ({ ...item, key: index }));
+	const data = dataFetch.map((item, index) => ({ ...item, key: index }));
+	console.log(dataFetch, 'datafetch section~~~~');
 
+	if (loading) {
+		return <Spinner />;
+	}
 	return (
 		<Layout className='body-wrapper'>
 			<Table
@@ -102,16 +129,11 @@ const TableSectionPage = () => {
 				dataSource={data}
 				title={() => headerTable({ showModal })}
 			/>
-			<CreateMaterial
+			<CreateSection
 				open={isModalOpen}
-				onOk={handleOk}
+				setIsModalOpen={setIsModalOpen}
 				onCancel={handleCancel}
 			/>
-			{/* <CreateSection
-				open={isModalOpen}
-				onOk={handleOk}
-				onCancel={handleCancel}
-			/> */}
 		</Layout>
 	);
 };

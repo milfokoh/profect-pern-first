@@ -4,13 +4,19 @@ import {
 	TeamOutlined,
 	UngroupOutlined,
 } from '@ant-design/icons';
-import { Card, Layout, Menu } from 'antd';
 import { HOME_ROUTE } from '../../utils/consts';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './CoursePage.css';
+import { Layout } from '@app/../UI';
+import { Card } from '@app/../UI';
+import { useEffect } from 'react';
 
 const CoursePage = () => {
 	const history = useHistory();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<Layout className='body-wrapper'>

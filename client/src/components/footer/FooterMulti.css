@@ -1,4 +1,6 @@
 .foot {
+	display: grid;
+	text-align: center;
 	/* color: white; */
 	/* text-align: center; */
 	/* background-color: rgb(0, 21, 41); */
@@ -15,6 +17,10 @@
 }
 
 .borColor {
+}
+.link-dev {
+	color: black;
+	text-decoration: none;
 }
 
 [href] {
