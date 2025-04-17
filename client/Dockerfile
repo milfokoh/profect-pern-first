@@ -10,11 +10,11 @@ COPY . .
 
 RUN npm run build
 
-# FROM nginx:stable-alpine
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# COPY --from=build /app/build /usr/share/nginx/html
-# COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]
 
 EXPOSE 3000
 
-# CMD ["npm", "run", "client"]
