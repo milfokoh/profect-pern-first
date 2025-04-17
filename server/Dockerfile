@@ -1,4 +1,4 @@
-FROM node:22.14.0
+FROM node:22.14.0 as build
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-# RUN npm install -g nodemon
+# RUN npm iznstall -g nodemon
 
 EXPOSE 5000
 
