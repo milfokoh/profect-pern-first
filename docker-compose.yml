@@ -18,13 +18,18 @@ services:
       context: ./server
       dockerfile: Dockerfile
     environment:
-      - PORT=5000
-      - DB_HOST=host.docker.internal
       - DB_NAME=pern_project
-      - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=root
-      - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/db
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - PORT=5000
+      # - DB_HOST=host.docker.internal
+      # - DB_NAME=pern_project
+      # - DB_PORT=5432
+      # - DB_USER=postgres
+      # - DB_PASSWORD=root
+      # - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/db
     ports:
       - '5000:5000'
     depends_on:
@@ -34,36 +39,39 @@ services:
       - /usr/src/app/node_modules
     networks:
       - dev
-  frontend:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
-    ports:
-      - '3000:3000'
-    depends_on:
-      - postgres
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    networks:
-      - dev
+  # frontend:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - '3000:3000'
+  #   depends_on:
+  #     - postgres
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   networks:
+  #     - dev
   postgres:
     image: postgres
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=pern_project
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
       - POSTGRES_HOST_AUTH_METHOD=trust
+      # - POSTGRES_DB=${DB_NAME}
+      # - POSTGRES_USER=${DB_USER}
+      # - POSTGRES_PASSWORD=${DB_PASSWORD}
     networks:
       - dev
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: a.trowina@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: alesya
-    ports:
-      - '8080:80'
-    networks:
-      - dev
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: a.trowina@gmail.com
+  #     PGADMIN_DEFAULT_PASSWORD: alesya
+  #   ports:
+  #     - '8080:80'
+  #   networks:
+  #     - dev
