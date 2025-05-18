@@ -27,8 +27,6 @@ const HeadBar = observer(() => {
 	const token = localStorage.getItem('token');
 	const isTokenEmpty = !token;
 
-	console.log(isTokenEmpty, 'is empty token?');
-
 	const handlePageClick = () => {
 		if (user.isAuth) {
 			user.setUser({});
@@ -67,12 +65,6 @@ const HeadBar = observer(() => {
 		color: 'white',
 		zIndex: '1000',
 	};
-
-	console.log('выполнен вход админа в систему?', user.isAuth);
-	console.log(
-		'выполнен вход пользователя(ака студента) в систему?',
-		student.isAuth
-	);
 
 	const getItem = (key, label, icon, href) => {
 		return {

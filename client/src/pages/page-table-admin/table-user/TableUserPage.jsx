@@ -100,7 +100,6 @@ const TableUserPage = () => {
 	}, []);
 
 	const data = dataFetch.map((item, index) => ({ ...item, key: index }));
-	console.log(dataFetch, 'datafetch user~~~~');
 
 	if (loading) {
 		return <Spinner />;
