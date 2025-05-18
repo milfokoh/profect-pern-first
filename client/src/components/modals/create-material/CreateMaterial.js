@@ -59,8 +59,6 @@ const CreateMaterial = observer(({ open, setIsModalOpen, onCancel }) => {
 		key: item.id.toString(),
 	}));
 
-	// console.log(, 'BLAYT data');
-
 	const menuProps = {
 		items,
 		onClick: handleMenuClick,

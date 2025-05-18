@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
 	overflow: hidden;
 	margin-bottom: 50px;
 	display: block;
+
+	@media (max-width: 580px) {
+		margin-bottom: 0;
+	}
 `;
 
 export const Header = styled.div`
@@ -19,12 +23,22 @@ export const Header = styled.div`
 	z-index: 0;
 	top: 20%;
 	right: 5%;
+
+	@media (max-width: 580px) {
+		top: 0;
+		right: 0;
+		padding: 5px;
+	}
 `;
 
 export const Headline = styled.h1`
 	color: ${COLOR.textPrimary};
 	font-weight: bold;
 	font-size: 5rem;
+
+	@media (max-width: 580px) {
+		font-size: 1.5rem;
+	}
 `;
 
 export const BackgroundImage = styled.img`
@@ -40,6 +54,11 @@ export const ButtonWrapper = styled.div`
 	z-index: 0;
 	top: calc(30% + 200px);
 	right: 5%;
+
+	@media (max-width: 580px) {
+		top: 70%;
+		right: 0;
+	}
 `;
 
 export const StyledButton = styled.button`
@@ -53,5 +72,11 @@ export const StyledButton = styled.button`
 
 	&::before {
 		content: 'Начать изучение →';
+	}
+
+	@media (max-width: 580px) {
+		padding: 3px;
+		font-size: 0.8rem;
+		border: 1px solid rgba(74, 94, 122, 0.84);
 	}
 `;

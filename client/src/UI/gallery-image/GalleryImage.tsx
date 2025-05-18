@@ -9,6 +9,7 @@ import {
 	SwiperWrapper,
 	SwiperSlide,
 	Description,
+	StyledImage,
 } from './GalleryImage.styled';
 
 const GalleryImage: FC<TGalleryImage> = ({ title, description }) => {
@@ -42,7 +43,7 @@ const GalleryImage: FC<TGalleryImage> = ({ title, description }) => {
 					onMouseEnter={() => setIsHovered(true)}
 					onMouseLeave={() => setIsHovered(false)}
 				>
-					<img
+					<StyledImage
 						src={images[currentIndex].image}
 						alt={images[currentIndex].description}
 					/>

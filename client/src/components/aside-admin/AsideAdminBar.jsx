@@ -38,7 +38,6 @@ const items = [
 const AsideAdminBar = observer(({ collapsed, setCollapsed }) => {
 	const location = useLocation();
 	const history = useHistory();
-	// console.log(location);
 
 	const handlerClick = e => {
 		return history.push(items[e.key - 1].href);

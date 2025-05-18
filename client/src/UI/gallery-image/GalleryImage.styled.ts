@@ -8,6 +8,12 @@ export const Swiper = styled.div`
 	height: 600px;
 	position: relative;
 	overflow: hidden;
+
+	@media (max-width: 580px) {
+		height: 235px;
+		margin: 0;
+		padding: 0;
+	}
 `;
 
 export const SwiperWrapper = styled.div`
@@ -33,14 +39,28 @@ export const SwiperSlide = styled.div`
 		opacity: 1;
 	}
 
-	img {
-		display: block;
-		max-width: 800px;
-		height: auto;
-		object-fit: cover;
-		border-radius: 0.5rem;
-		transition: opacity 0.3s ease;
-		user-select: none;
+	// img {
+	// 	display: block;
+	// 	max-width: 800px;
+	// 	height: auto;
+	// 	object-fit: cover;
+	// 	border-radius: 0.5rem;
+	// 	transition: opacity 0.3s ease;
+	// 	user-select: none;
+	// }
+`;
+
+export const StyledImage = styled.img`
+	display: block;
+	max-width: 800px;
+	height: auto;
+	object-fit: cover;
+	border-radius: 0.5rem;
+	transition: opacity 0.3s ease;
+	user-select: none;
+
+	@media (max-width: 580px) {
+		max-width: 325px;
 	}
 `;
 

@@ -114,7 +114,6 @@ const TableSectionPage = () => {
 	}, []);
 
 	const data = dataFetch.map((item, index) => ({ ...item, key: index }));
-	console.log(dataFetch, 'datafetch section~~~~');
 
 	if (loading) {
 		return <Spinner />;

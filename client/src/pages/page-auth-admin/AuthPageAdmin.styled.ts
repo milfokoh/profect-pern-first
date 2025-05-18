@@ -24,6 +24,10 @@ export const BodyForm = styled(Form)`
 	background-color: rgba(26, 40, 26, 0.61);
 	color: white;
 	z-index: 1;
+
+	@media (max-width: 538px) {
+		width: 350px;
+	}
 `;
 
 export const BackgroundImage = styled.img`

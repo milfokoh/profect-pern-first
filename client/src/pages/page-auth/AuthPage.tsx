@@ -47,14 +47,14 @@ const AuthPage: FC<TAuthPage> = observer(() => {
 					groupUni
 				);
 			}
-			console.log(data, 'data~~~~~');
 			student.setUser(student);
 			student.setName(data);
 			student.setInfo(data);
 			student.setIsAuth(true);
 			history.push(PROFILE_ROUTE);
 		} catch (error) {
-			message.error(error.response.data.message);
+			console.log(error, 'error');
+			// message.error(error.response.data.message);
 		}
 	};
 

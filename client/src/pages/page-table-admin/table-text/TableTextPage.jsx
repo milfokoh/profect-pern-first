@@ -127,7 +127,6 @@ const TableTextPage = () => {
 	if (loading) {
 		return <Spinner />;
 	}
-	console.log(dataFetch, 'datafetch~~~~');
 
 	return (
 		<Layout className='body-wrapper'>
