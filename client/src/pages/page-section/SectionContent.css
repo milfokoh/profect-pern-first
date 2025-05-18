@@ -3,6 +3,25 @@
 	margin: 24px 16px;
 	padding: 24px;
 }
+
+@media (max-width: 538px) {
+	.body-wrapper {
+		/* width: 100%; */
+	}
+
+	.body-wrapper img {
+		width: 100%;
+		height: auto;
+	}
+
+	.body-wrapper span {
+		font-size: 0.8rem;
+		white-space: normal;
+		word-wrap: break-word;
+		word-break: break-word;
+		overflow-wrap: break-word;
+	}
+}
 p {
 	padding-left: 10px;
 }
