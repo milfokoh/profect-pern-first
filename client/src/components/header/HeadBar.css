@@ -35,6 +35,21 @@
 	cursor: pointer;
 }
 
+@media (max-width: 538px) {
+	.h-left {
+		margin-left: 20px;
+		font-size: 0.8rem;
+	}
+
+	.h-right {
+		font-size: 0.8rem;
+	}
+
+	.menu-horizontal-my {
+		font-size: 0.8rem;
+	}
+}
+
 .h-right {
 	flex: 1;
 	padding-right: 20px;
