@@ -22,7 +22,7 @@ const generateJwt = (
 };
 
 class StudentController {
-	async registration(req, res) {
+	async registration(req, res, next) {
 		const { email, password, firstName, lastName, univer, groupUni, role } =
 			req.body;
 		if (!email || !password) {
