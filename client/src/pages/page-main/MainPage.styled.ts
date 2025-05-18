@@ -170,10 +170,6 @@ export const HeadContainer = styled.div`
 export const Head = styled.div`
 	display: flex;
 	justify-content: center;
-
-	@media (max-width: 580px) {
-		justify-content: flex-start;
-	}
 `;
 
 export const HeadTitle = styled.h1`
