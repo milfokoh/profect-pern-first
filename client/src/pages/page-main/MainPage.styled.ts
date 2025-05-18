@@ -184,7 +184,7 @@ export const HeaderDecription = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
-	margin: 30px 0;
+	margin: 30px 5px;
 `;
 
 export const StyledTitle = styled.h1`
@@ -195,6 +195,7 @@ export const StyledTitle = styled.h1`
 	color: ${COLOR.textPrimary};
 
 	@media (max-width: 580px) {
+		padding-top: 10px;
 		font-size: 1.5rem;
 	}
 `;
