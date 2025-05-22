@@ -29,23 +29,23 @@ services:
     mem_limit: 512m
     cpus: 1.0
 
-  postgres:
-    image: postgres
-    ports:
-      - '5432:5432'
-    environment:
-      - POSTGRES_DB=pern_project
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=root
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
-      - dev
-    mem_limit: 512m
-    cpus: 1.0
+#   postgres:
+#     image: postgres
+#     ports:
+#       - '5432:5432'
+#     environment:
+#       - POSTGRES_DB=pern_project
+#       - POSTGRES_USER=postgres
+#       - POSTGRES_PASSWORD=root
+#     volumes:
+#       - pgdata:/var/lib/postgresql/data
+#     networks:
+#       - dev
+#     mem_limit: 512m
+#     cpus: 1.0
 
-volumes:
-  pgdata:
+# volumes:
+#   pgdata:
 
 networks:
   dev:
