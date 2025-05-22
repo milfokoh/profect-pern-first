@@ -13,8 +13,8 @@ services:
       - DB_PORT=5432
     ports:
       - '5000:5000'
-    depends_on:
-      - postgres
+    # depends_on:
+    # - postgres
     volumes:
       - ./server:/usr/src/app
       - /usr/src/app/node_modules
