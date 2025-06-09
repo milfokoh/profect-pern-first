@@ -18,8 +18,8 @@ export default class StudentStore {
 	setName({ lastName, firstName }) {
 		this._name = { lastName, firstName };
 	}
-	setInfo({ univer, groupUni }) {
-		this._info = { univer, groupUni };
+	setInfo({ univer, groupUni, rating, section, id }) {
+		this._info = { univer, groupUni, rating, section, id };
 	}
 	get isAuth() {
 		return this._isAuth;
@@ -32,5 +32,14 @@ export default class StudentStore {
 	}
 	get name() {
 		return `${this._name.firstName} ${this._name.lastName}`;
+	}
+	get rating() {
+		return this._info.rating;
+	}
+	get section() {
+		return this._info.section;
+	}
+	get studentId() {
+		return this._info.id;
 	}
 }

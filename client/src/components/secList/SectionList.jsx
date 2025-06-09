@@ -1,10 +1,23 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import './SectionList.css';
 import SectionItem from '../secItem/SectionItem';
 import { Space } from 'antd';
 import { observer } from 'mobx-react-lite';
+import Spinner from '../spinner';
 
 const SectionList = observer(({ section, materials }) => {
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		if (section && materials) {
+			setLoading(false);
+		}
+	}, [section, materials]);
+
+	if (loading) {
+		return <Spinner />;
+	}
+
 	return (
 		<Space direction='vertical' size='middle' className='space'>
 			{section.section.map(sec => (

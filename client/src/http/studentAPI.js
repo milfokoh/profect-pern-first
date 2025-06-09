@@ -36,3 +36,21 @@ export const check = async () => {
 	localStorage.setItem('token', data.token);
 	return jwtDecode(data.token);
 };
+
+export const updateQuiz = async (studentId, rating, section) => {
+	const { data } = await $host.put(`api/quiz/${studentId}`, {
+		rating,
+		section,
+	});
+	return data;
+};
+
+export const fetchOneQuiz = async id => {
+	const { data } = await $authHost.get(`api/quiz/${id}`);
+	return data;
+};
+
+export const fetchQuiz = async () => {
+	const { data } = await $host.get('api/quiz');
+	return data;
+};

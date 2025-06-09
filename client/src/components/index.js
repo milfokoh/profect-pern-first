@@ -8,3 +8,4 @@ export { default as SectionList } from './secList';
 export { default as CreateMaterial } from './modals/create-material';
 export { default as CreateSection } from './modals/create-section';
 export { default as AppRouter } from './router';
+export { default as Quiz } from './quiz';

@@ -7,6 +7,7 @@ import { authRoutes, publicRoutes } from '@app/../routes';
 
 const AppRouter = observer(() => {
 	const { user, student } = useContext(Context);
+
 	return (
 		<Switch>
 			{user.isAuth &&
