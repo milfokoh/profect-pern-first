@@ -30,12 +30,29 @@ const Student = sequelize.define('student', {
 	role: { type: DataTypes.STRING, defaultValue: 'STUDENT' },
 });
 
+const Quiz = sequelize.define('quizzes', {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	email: { type: DataTypes.STRING, unique: true },
+	rating: {
+		type: DataTypes.INTEGER,
+		defaultValue: 0,
+	},
+	section: {
+		type: DataTypes.ARRAY(DataTypes.INTEGER),
+		defaultValue: [null, null, null, null, null, null, null, null, null, null],
+	},
+});
+
 Section.hasMany(Material, { as: 'info' });
 Material.belongsTo(Section);
+
+Student.hasMany(Quiz);
+Quiz.belongsTo(Student);
 
 module.exports = {
 	User,
 	Section,
 	Material,
 	Student,
+	Quiz,
 };
