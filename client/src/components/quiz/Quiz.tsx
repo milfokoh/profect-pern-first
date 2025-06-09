@@ -40,8 +40,6 @@ const Quiz: FC<TQuiz> = ({ section, studentId }) => {
 		}
 	}, [section]);
 
-	console.log(currentAnswer, 'studentId');
-
 	useEffect(() => {
 		if (quizData) {
 			setCorrectAnswer(quizData['correct']);
@@ -61,10 +59,12 @@ const Quiz: FC<TQuiz> = ({ section, studentId }) => {
 	}, [studentId]);
 
 	useEffect(() => {
-		const index = section - 1;
-		const isSolved = studentQuizData?.section[index] === 1;
-		setIsTestSolved(isSolved);
-	}, [section]);
+		const index = Number(section) - 1;
+		if (studentQuizData) {
+			const isSolved = studentQuizData?.section[index] == 1;
+			setIsTestSolved(isSolved);
+		}
+	}, [studentQuizData, section]);
 
 	const updateSectionRating = index => {
 		const currentIndex = index - 1;
