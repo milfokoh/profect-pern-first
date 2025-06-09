@@ -53,15 +53,18 @@ const Quiz: FC<TQuiz> = ({ section, studentId }) => {
 			try {
 				const data = await fetchOneQuiz(studentId);
 				setStudentDataQuiz(data);
-
-				const isSolved = studentQuizData?.section[section - 1] === 1;
-				setIsTestSolved(isSolved);
 			} catch (error) {
 				console.error('Ошибка при получении данных студента:', error);
 			}
 		};
 		fetchDataOneQuiz();
 	}, [studentId]);
+
+	useEffect(() => {
+		const index = section - 1;
+		const isSolved = studentQuizData?.section[index] === 1;
+		setIsTestSolved(isSolved);
+	}, [section]);
 
 	const updateSectionRating = index => {
 		const currentIndex = index - 1;
