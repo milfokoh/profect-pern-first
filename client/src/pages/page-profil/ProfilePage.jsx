@@ -6,14 +6,52 @@ import './ProfilePage.css';
 import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Card, Layout } from '@app/../UI';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Context } from '../..';
+import { check } from '../../http/userAPI';
+import { fetchOneQuiz } from '../../http/studentAPI';
 
 const ProfilePage = observer(() => {
 	const history = useHistory();
 	const { student } = useContext(Context);
+	const [infoStudent, setInfoStudent] = useState({
+		name: 'Фамилия Имя',
+		info: 'Универ / Группа',
+	});
+	const [ratingStudent, setRatingStudent] = useState(0);
 
-	console.log(student, 'student');
+	const fetchDataOneQuiz = async () => {
+		try {
+			const data = await fetchOneQuiz(student.studentId);
+			const rating = data.rating * 10;
+			console.log(data.rating);
+			setRatingStudent(rating);
+		} catch (error) {
+			console.error('Ошибка при получении рейтинга студента:', error);
+		}
+	};
+
+	useEffect(() => {
+		const authenticateUser = async () => {
+			try {
+				const data = await check();
+				if (data.role === 'STUDENT') {
+					setInfoStudent(() => ({
+						name: student.name,
+						info: student.info,
+					}));
+				}
+			} catch (error) {
+				console.log('[ProfilePage.js] void check():', error);
+			}
+		};
+		authenticateUser();
+	}, []);
+
+	useEffect(() => {
+		fetchDataOneQuiz();
+	}, []);
+
 	return (
 		<Layout className='body-wrapper'>
 			<Card>
@@ -22,10 +60,10 @@ const ProfilePage = observer(() => {
 						<Col className='col-avatar'>
 							<Avatar size={200} icon={<MehTwoTone />} />
 							<h2 className='col-name'>
-								{student.isAuth ? student.name : 'Вы не вошли в аккаунт?'}
+								{student.isAuth ? infoStudent.name : 'Вы не вошли в аккаунт?'}
 							</h2>
 							<h5 className='col-grp'>
-								{student.isAuth ? student.info : 'Необходимо это исправить'}
+								{student.isAuth ? infoStudent.info : 'Необходимо это исправить'}
 							</h5>
 						</Col>
 					</Row>
@@ -37,7 +75,10 @@ const ProfilePage = observer(() => {
 							onClick={() => history.push(COURSE_ROUTE)}
 						>
 							<h4 className='progress-name'>География</h4>
-							<Progress percent={0} size={[undefined, 20]} />
+							<Progress
+								percent={student.isAuth ? ratingStudent : 0}
+								size={[undefined, 20]}
+							/>
 							{student.isAuth ? (
 								<small>Вам доступен данный курс для прохождения</small>
 							) : (
