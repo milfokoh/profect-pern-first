@@ -8,4 +8,5 @@ export const COLOR = {
 	green: 'rgb(76, 175, 80)',
 	lightBlue: 'rgb(156, 203, 219)',
 	darkBlue: 'rgb(0, 51, 102)',
+	backgroundWhite: 'white',
 };
