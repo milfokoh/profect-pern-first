@@ -14,25 +14,29 @@ import { observer } from 'mobx-react-lite';
 import { Layout } from './UI';
 
 const App = observer(() => {
-	const { user } = useContext(Context);
+	const { user, student } = useContext(Context);
 	const [collapsed, setCollapsed] = useState(true);
 	const [loading, setLoading] = useState(false);
 
-	useEffect(() => {
-		check()
-			.then(data => {
-				user.setUser(data);
-				user.setIsAuth(true);
-				console.log(data, 'DATA');
-			})
-			.finally(() => setLoading(false));
-		// check()
-		// 	.then(data => {
-		// 		student.setUser(data);
-		// 		student.setIsAuth(true);
-		// 	})
-		// 	.finally(() => setLoading(false));
-	}, []);
+	// useEffect(() => {
+	// 	const authenticateUser = async () => {
+	// 		try {
+	// 			const data = await check();
+	// 			if (data.role === 'STUDENT') {
+	// 				student.setUser(data);
+	// 				student.setIsAuth(true);
+	// 			} else {
+	// 				user.setUser(data);
+	// 				user.setIsAuth(true);
+	// 			}
+	// 		} catch (error) {
+	// 			console.log('[App.js] void check():', error);
+	// 		} finally {
+	// 			setLoading(false);
+	// 		}
+	// 	};
+	// 	authenticateUser();
+	// }, [user, student]);
 
 	if (loading) {
 		return <Spinner />;
