@@ -22,3 +22,19 @@
 .col-grp {
 	margin-top: 5px;
 }
+
+.card-progress {
+	max-width: 500px;
+	max-height: 300px;
+}
+
+@media (max-width: 538px) {
+	.card-progress {
+		width: 100%;
+		height: auto;
+	}
+
+	.avatar-profile svg {
+		font-size: 6rem;
+	}
+}

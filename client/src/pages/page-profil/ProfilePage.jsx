@@ -1,4 +1,4 @@
-import { MehTwoTone } from '@ant-design/icons';
+import { MehTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Avatar, Col, Progress, Row } from 'antd';
 import { COURSE_ROUTE, HOME_ROUTE } from '../../utils/consts';
 
@@ -50,7 +50,7 @@ const ProfilePage = observer(() => {
 
 	useEffect(() => {
 		fetchDataOneQuiz();
-	}, []);
+	}, [student]);
 
 	return (
 		<Layout className='body-wrapper'>
@@ -58,7 +58,11 @@ const ProfilePage = observer(() => {
 				<Card className='card-avatar'>
 					<Row className='name'>
 						<Col className='col-avatar'>
-							<Avatar size={200} icon={<MehTwoTone />} />
+							<Avatar
+								size={200}
+								icon={student.isAuth ? <SmileTwoTone /> : <MehTwoTone />}
+								className='avatar-profile'
+							/>
 							<h2 className='col-name'>
 								{student.isAuth ? infoStudent.name : 'Вы не вошли в аккаунт?'}
 							</h2>
@@ -69,7 +73,7 @@ const ProfilePage = observer(() => {
 					</Row>
 				</Card>
 				<Row className='bio'>
-					<Col span={8}>
+					<Col span={32}>
 						<Card
 							className='card-progress'
 							onClick={() => history.push(COURSE_ROUTE)}
