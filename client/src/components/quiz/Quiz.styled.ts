@@ -40,6 +40,10 @@ export const BlurTitleWrapper = styled.div`
 	padding: 20px;
 	border-radius: 10px;
 	border: 1px solid ${COLOR.lightBlue};
+
+	@media (max-width: 538px) {
+		width: 250px;
+	}
 `;
 
 export const StyledTrophyOutlined = styled(TrophyOutlined)`
@@ -48,7 +52,9 @@ export const StyledTrophyOutlined = styled(TrophyOutlined)`
 	color: ${COLOR.textPrimary};
 
 	@media (max-width: 538px) {
-		font-size: 5rem;
+		& svg {
+			font-size: 5rem;
+		}
 	}
 `;
 
