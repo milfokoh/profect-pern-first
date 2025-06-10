@@ -34,7 +34,7 @@ export const QuizBluriWrapper = styled.div`
 
 export const BlurTitleWrapper = styled.div`
 	max-width: 300px;
-	max-height: 300px;
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
@@ -48,7 +48,7 @@ export const StyledTrophyOutlined = styled(TrophyOutlined)`
 	color: ${COLOR.textPrimary};
 
 	@media (max-width: 538px) {
-		font-size: 4rem;
+		font-size: 5rem;
 	}
 `;
 
@@ -57,7 +57,7 @@ export const BlurTitleText = styled.p`
 	color: ${COLOR.textPrimary};
 
 	@media (max-width: 538px) {
-		font-size: 1rem;
+		font-size: 1.4rem;
 	}
 `;
 
