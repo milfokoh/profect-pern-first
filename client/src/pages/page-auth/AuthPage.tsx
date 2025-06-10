@@ -53,8 +53,9 @@ const AuthPage: FC<TAuthPage> = observer(() => {
 			student.setIsAuth(true);
 			history.push(PROFILE_ROUTE);
 		} catch (error) {
-			// console.log(error, 'error');
-			message.error(error.response.data.message);
+			const textError =
+				error?.response?.status === 500 && error?.response?.data?.message;
+			message.error(textError);
 		}
 	};
 
